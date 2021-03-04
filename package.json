@@ -1,0 +1,20 @@
+{
+    "name": "fuse-snippets",
+    "displayName": "fuse-snippets",
+    "description": "Snippets to help with the creation of fuses for BMD's Fusion and Davinci Resolve",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.53.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "lua",
+                "path": "./snippets/snippets.code-snippets"
+            }
+        ]
+    }
+}

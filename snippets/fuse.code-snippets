@@ -1,0 +1,37 @@
+{
+    "Simple Fuse":{
+        "prefix":"sfu",
+        "scope": "lua",
+        "body":[
+            "--[[--",
+            "   $TM_FILENAME",
+            "",
+            "  ${1:Description of the fuse}",
+            "",
+            "   ${2:Author}",
+            "--]]--",
+            "",
+            "",
+            "-----------------------------",
+            "Register Class",
+            "-----------------------------",
+            "FuRegisterClass('${TM_FILENAME/(.*)\\..+$/$1/}', CT_Tool, {",
+            "   REGS_Category           = 'Fuses',",
+            "   REGS_OpIconString       ='${TM_FILENAME/(.*)\\..+$/${1:/upcase}/}',",
+            "   REGS_OpDescription      = ${1:Description}',",
+            "   REG_OpNoMask            = true,",
+            "   REG_NoBlendCtrls        = true,",
+            "   REG_NoObjMatCtrls       = true,",
+            "   REG_NoMotionBlurCtrls   = true,",
+            "   REG_NoPreCalcProcess    = true,  -- call Process for precalc requests (instead of PreCalcProcess)",
+            "   REG_NoObjMatCtrls       = true,",
+            "   REG_NoMotionBlurCtrls   = true,",
+            "})",
+            "",
+            "",
+            "",
+            "" ,
+        ],
+        "description": "Simple Fuse template"
+    }
+}

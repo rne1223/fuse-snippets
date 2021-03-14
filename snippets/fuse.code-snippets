@@ -1,37 +1,405 @@
 {
     "Simple Fuse":{
-        "prefix":"sfu",
-        "scope": "lua",
+        "prefix":"fuse-init",
+        "scope": "fuse",
         "body":[
             "--[[--",
             "   $TM_FILENAME",
             "",
             "  ${1:Description of the fuse}",
             "",
-            "   ${2:Author}",
             "--]]--",
             "",
             "",
-            "-----------------------------",
-            "Register Class",
-            "-----------------------------",
             "FuRegisterClass('${TM_FILENAME/(.*)\\..+$/$1/}', CT_Tool, {",
-            "   REGS_Category           = 'Fuses',",
-            "   REGS_OpIconString       ='${TM_FILENAME/(.*)\\..+$/${1:/upcase}/}',",
-            "   REGS_OpDescription      = ${1:Description}',",
-            "   REG_OpNoMask            = true,",
-            "   REG_NoBlendCtrls        = true,",
-            "   REG_NoObjMatCtrls       = true,",
-            "   REG_NoMotionBlurCtrls   = true,",
-            "   REG_NoPreCalcProcess    = true,  -- call Process for precalc requests (instead of PreCalcProcess)",
-            "   REG_NoObjMatCtrls       = true,",
-            "   REG_NoMotionBlurCtrls   = true,",
+            "\tREGS_Category           = 'Fuses',",
+            "\tREGS_OpIconString       = '${TM_FILENAME/(.*)\\..+$/${1:/upcase}/}',",
+            "\tREGS_OpDescription      = \"${1}\",",
+            "\tREG_OpNoMask            = true,",
+            "\tREG_NoBlendCtrls        = true,",
+            "\tREG_NoObjMatCtrls       = true,",
+            "\tREG_NoMotionBlurCtrls   = true,",
+            "\tREG_NoPreCalcProcess    = true,  -- call Process for precalc requests (instead of PreCalcProcess)",
+            "\tREG_NoObjMatCtrls       = true,",
+            "\tREG_NoMotionBlurCtrls   = true,",
             "})",
             "",
             "",
+            "function Create()",
+            "\tInBlank = self:AddInput(\"\", \"Blank\", {",
+            "\t\tLINKID_DataType = \"Number\",",
+            "\t\tINPID_InputControl = \"LabelControl\",",
+            "\t\tINP_External = false,",
+            "\t})",
             "",
+            "",
+            "\tInImage = self:AddInput(\"Input\", \"Input\", {",
+            "\t\tLINKID_DataType = \"Image\",",
+            "\tLINK_Main = 1,",
+            "\t})",
+            "",
+            "",
+            "\tOutImage = self:AddOutput(\"Output\", \"Output\", {",
+            "\t\tLINKID_DataType = \"Image\",",
+            "\t\tLINK_Main = 1,",
+            "\t})",
+            "end",
+            "",
+            "",
+            "function Process(req)",
+            "\tlocal img = InImage:GetValue(req)",
+            "\timg:Use()",
             "" ,
+            "\tOutImage:Set(req, img)",
+            "end",
         ],
         "description": "Simple Fuse template"
+    },
+
+    "FuRegisterClass": {
+        "prefix": "reg",
+        "scope": "fuse",
+        "body": [
+            "FuRegisterClass('${1:name}', ${2|CT_Tool,CT_ParticleTool,CT_SourceTool,CT_Modifier,CT_ViewLUTPlugin|}, {",
+            "\tREGS_Category = \"Fuses\",",
+            "\tREGS_OpIconString = 'ST',",
+            "\tREGS_OpDescription = 'Source Test',",
+            "\tREG_OpNoMask = true,",
+            "\tREG_NoBlendCtrls = true,",
+            "\tREG_NoObjMatCtrls = true,",
+            "\tREG_NoMotionBlurCtrls = true,",
+            "\tREG_Source_GlobalCtrls = true,",
+            "\tREG_Source_SizeCtrls = true,",
+            "\tREG_Source_AspectCtrls = true,",
+            "\tREG_Source_DepthCtrls = true,",
+            "\tREG_TimeVariant = true,",
+            "\tREG_Fuse_NoEdit = false,",
+            "\tREG_Fuse_NoReload = false,",
+            "})",
+        ],
+        "description": "Registration Class for a Fuse. This is needed"
+    },
+
+    "Attributes for Inputs": {
+        "prefix": "!ip",
+        "scope": "fuse",
+        "body": [
+            "${1|LINKID_DataType,INPID_InputControl,INP_External|} = ${2},",
+        ],
+        "description": "Log output to console"
+    },
+
+    "Generic Add Input": {
+        "prefix": ":ainput",
+        "scope": "fuse",
+        "body": [
+            "In${1:variableName} = self:AddInput('${2:labelname}', '${2}', {",
+            "\tLINKID_DataType='${3|Image,FuID,Gradient,Number,Particles,Point,Text|}',",
+            "\t{${4:Attributes}}",
+            "})",
+        ],
+        "description": "Add an input control for a Fuse"
+    },
+
+    "Add Input Button Control ": {
+        "prefix": ":abutton",
+        "scope": "fuse",
+        "body": [
+            "In${1:Button} = self:AddInput('${2:This is a button}', '${3:ButtonLabel1}', {",
+            "\tLINKID_DataType=\"Text\",",
+            "\tINPID_InputControl = \"ButtonControl\",",
+            "\tBTNC_Align = \"${4|Left,CenteredLeft,Center,CenteredRight,Right|}\",",
+            "\tINP_DoNotifyChanged = true,",
+            "\tINP_External = false,",
+            "})",
+        ],
+        "description": "Add Button Control to Fusion's Inspector Page"
+    },
+
+    "Add Input Checkbox Control ": {
+        "prefix": ":acheckbox",
+        "scope": "fuse",
+        "body": [
+            "In${1:Checkbox} = self:AddInput('${2:MyCheckbox}', '${2}', {",
+            "\tLINKID_DataType=\"Number\",",
+            "\tINPID_InputControl = \"CheckboxControl\",",
+            "\tINP_Integer = true,",
+            "\tINP_Default = 1.0,",
+            "\tICD_Width = 0.25,",
+            "})",
+        ],
+        "description": "Add Checkbox Control to Fusion's Inspector Page"
+    },
+
+    "Add Input Color Control": {
+        "prefix": ":acolor",
+        "scope": "fuse",
+        "body": [
+            "In${1:ColorControl} = self:AddInput('${2|Red,Green,Blue,Alpha|}', '${2}', {",
+            "\tLINKID_DataType=\"Number\",",
+            "\tINPID_InputControl = \"ColorControl\",",
+            "\tICS_Name = \"${3:Color Name}\",",
+            "\tINP_MinScale = 0.0,",
+            "\tINP_MaxScale = 1.0,",
+            "\tINP_Default  = 1.0,",
+            "\tIC_ControlGroup = 1,",
+            "\tIC_ControlID = 0,",
+            "})",
+        ],
+        "description": "Add a Color Control to Fusion's Inspector Page"
+    },
+
+    "Add Input Combo Control": {
+        "prefix": ":acombo",
+        "scope": "fuse",
+        "body": [
+          "In${1:Operation} = self:AddInput('${2:Operator}', '${2}', {",
+          "\tLINKID_DataType=\"Number\",",
+          "\tINPID_InputControl = \"ComboControl\",",
+          "\tINP_Default  = 1.0,",
+          "\tINP_Integer = true,",
+          "\tICD_Width = 0.5,",
+          "\tCC_LabelPosition = \"${3|Horizontal,Vertical|}\",",
+          "\t{CCS_AddString = \"${4:Option1}\", },",
+          "\t{CCS_AddString = \"${5:Option2}\", },",
+          "})",
+        ],
+        "description": "Add Combo Control to Fusion's Inspector Page"
+    },
+
+    "Add Input Combo ID Control": {
+        "prefix": ":aidcombo",
+        "scope": "fuse",
+        "body": [
+            "In${1:Direction} = self:AddInput('${2:Direction of Camera}', '${3:Direction}', {",
+            "\tLINKID_DataType=\"FuID\",",
+            "\tINPID_InputControl = \"ComboIDControl\",",
+            "\tINPID_DefaultID  = \"Front\",",
+            "\t{CCS_AddString = \"+X Axis: Right\", CCID_AddID = \"Right\", },",
+            "\t{CCS_AddString = \"-X Axis: Left\",  CCID_AddID = \"Left\", },",
+            "\t{CCS_AddString = \"-Z Axis: Front\", CCID_AddID = \"Front\", },",
+            "\t{CCS_AddString = \"+Z Axis: Back\",  CCID_AddID = \"Back\", },",
+            "})",
+        ],
+        "description": "Add Combo Id Control to Fusion's Inspector Page"
+    },
+
+    "Add Input File Control": {
+        "prefix": ":afile",
+        "scope": "fuse",
+        "body": [
+            "In${1:File} = self:AddInput('${2:File}', '${2}', {",
+            "\tLINKID_DataType=\"Text\",",
+            "\tINPID_InputControl = \"FileControl\",",
+            "\tFC_ClipBrowse = true,",
+            "})",
+        ],
+        "description": "Add FileControl dialog to Fusion's Inspector Page"
+    },
+
+    "Add Font File and Style Control": {
+        "prefix": ":afontfile",
+        "scope": "fuse",
+        "body": [
+            "In${1:Font} = self:AddInput('${2:Font}', '${2}', {",
+            "\tLINKID_DataType=\"Text\",",
+            "\tINPID_InputControl = \"FontFileControl\",",
+            "\tIC_ControlGroup = ${3:2},",
+            "\tIC_ControlID = 1,",
+            "\tINP_Level = 1,",
+            "\tINP_DoNotifyChanged = true,",
+            "})",
+            "",
+            "",
+            "In${4:FontStyle} = self:AddInput('${5:Style}', '${5}', {",
+            "\tLINKID_DataType=\"Text\",",
+            "\tINPID_InputControl = \"FontFileControl\",",
+            "\tIC_ControlGroup = ${3},",
+            "\tIC_ControlID = 2,",
+            "\tINP_Level = 1,",
+            "\tINP_DoNotifyChanged = true,",
+            "})",
+        ],
+        "description": "Add Font Style Control to Fusion's Inspector Page"
+    },
+
+    "Add Gradient Control": {
+        "prefix": ":agradient",
+        "scope": "fuse",
+        "body": [
+            "In${1:Gradient} = self:AddInput('${2:Gradient}', '${2}', {",
+            "\tLINKS_Name = \"Gradient\",",
+            "\tLINKID_DataType=\"Gradient\",",
+            "\tINPID_InputControl = \"GradientControl\",",
+            "\tINP_MinAllowed = -100000.0,",
+            "\tINP_MaxAllowed = 100000.0,",
+            "\tINP_MinScale = 0.0,",
+            "\tINP_MaxScale = 1.0,",
+            "\tINPP_DefaultParam = Gradient(\"${3|GP_BlackToWhite,GP_None,GP_SolidBlack,GP_SolidWhite,GP_WhiteToBlack,GP_BlackToTransparant,GP_BlackToTransparent,GP_WhiteToTransparant ,GP_WhiteToTransparent|}\")",
+            "})",
+        ],
+        "description": "Add Gradient Control to Fusion's Inspector Page"
+    },
+
+    "Add Label Control": {
+        "prefix": ":alabel",
+        "scope": "fuse",
+        "body": [
+            "In${1:Label} = self:AddInput('${2:This is a label}', '${3:Label1}', {",
+            "\tLINKID_DataType=\"Text\",",
+            "\tINPID_InputControl = \"LabelControl\",",
+            "\tINP_External = false,",
+            "\tINP_Passive = true,",
+            "})",
+        ],
+        "description": "Add Label Control to Fusion's Inspector Page"
+    },
+
+    "Add MultiButton Control": {
+        "prefix": ":amultibutton",
+        "scope": "fuse",
+        "body": [
+            "In${1:Operation} = self:AddInput('${2:Operation}', '${2}', {",
+            "\tLINKID_DataType=\"Number\",",
+            "\tINPID_InputControl = \"MultiButtonControl\",",
+            "\tINPID_Default = \"0.0\",",
+            "\t{MBTNC_AddButton = \"Min\", MBTNCD_ButtonWidth = 0.25, },",
+            "\t{MBTNC_AddButton = \"Max\", MBTNCD_ButtonWidth = 0.25, },",
+            "\t{MBTNC_AddButton = \"Add\", MBTNCD_ButtonWidth = 0.25, },",
+            "\t{MBTNC_AddButton = \"Sub\", MBTNCD_ButtonWidth = 0.25, },",
+            "})",
+        ],
+        "description": "Add MultiButton Control to Fusion's Inspector Page"
+    },
+
+    "Add MultiButton ID Control": {
+        "prefix": ":aidmultibutton",
+        "scope": "fuse",
+        "body": [
+            "In${1:MultiButton} = self:AddInput('${2:Multibutton Label}', '${3:Multibutton1}', {",
+            "\tLINKID_DataType=\"FuID\",",
+            "\tINPID_InputControl = \"MultiButtonIDControl\",",
+            "\tINPID_Default = \"0.0\",",
+            "\t{MBTNC_AddButton = \"RGB\", MBTNCID_AddID = \"RGB\", },",
+            "\t{MBTNC_AddButton = \"HLS\", MBTNCID_AddID = \"HLS\", },",
+            "\t{MBTNC_AddButton = \"HSV\", MBTNCID_AddID = \"HSV\", },",
+            "\t{MBTNC_AddButton = \"LAB\", MBTNCID_AddID = \"LAB\", },",
+            "\tMBTNC_StretchToFit = true,",
+            "\tINPID_DefaultID = \"HLS\",",
+            "})",
+        ],
+        "description": "Add MultiButton ID Control to Fusion's Inspector Page"
+    },
+
+    "Add OffSet Control": {
+        "prefix": ":aoffset",
+        "scope": "fuse",
+        "body": [
+            "In${1:Center} = self:AddInput('${2:Center}', '${2}', {",
+            "\tLINKID_DataType=\"Point\",",
+            "\tINPID_InputControl = \"OffsetControl\",",
+            "\tINPID_PreviewControl = \"CrosshairControl\",",
+            "\tCHC_Style = \"${3|DiagonalCross,NormalCross,Circle,Rectangle|}\",",
+            "\tPC_GrabPriority = -1",
+            "})",
+        ],
+        "description": "Add OffSet Control to Fusion's Inspector Page"
+    },
+
+    "Add Range Control": {
+        "prefix": ":arange",
+        "scope": "fuse",
+        "body": [
+            "In${1:Low} = self:AddInput('${2:My Low Value}', '${3:lowValue1}', {",
+            "\tLINKID_DataType=\"Number\",",
+            "\tINPID_InputControl = \"RangeControl\",",
+            "\tINP_Default = 0.0,",
+            "\tIC_ControlGroup = ${4:2},",
+            "\tIC_ControlID = 0,",
+            "})",
+            "",
+            "",
+            "In${5:High} = self:AddInput('${6:My High Value}', '${7:highValue1}', {",
+            "\tLINKID_DataType=\"Number\",",
+            "\tINPID_InputControl = \"RangeControl\",",
+            "\tINP_Default = 1.0,",
+            "\tIC_ControlGroup = ${4},",
+            "\tIC_ControlID = 1,",
+            "})",
+        ],
+        "description": "Add Range Control to Fusion's Inspector Page"
+    },
+
+
+    "Add Screw Control": {
+        "prefix": ":ascrew",
+        "scope": "fuse",
+        "body": [
+            "In${1:Screw} = self:AddInput('${2:Screw Label}', '${3:Screw1}', {",
+            "\tLINKID_DataType=\"Number\",",
+            "\tINPID_InputControl = \"ScrewControl\",",
+            "\tINP_MinScale = -10000.0,",
+            "\tINP_MaxScale = 10000.0,",
+            "\tINP_Default = 1234,",
+            "})",
+        ],
+        "description": "Add Screw Control to Fusion's Inspector Page"
+    },
+
+    "Add Slider Control": {
+        "prefix": ":aslider",
+        "scope": "fuse",
+        "body": [
+            "In${1:Slider} = self:AddInput('${2:Slider Label}', '${3:Slider1}', {",
+            "\tLINKID_DataType=\"Number\",",
+            "\tINPID_InputControl = \"SliderControl\",",
+            "\tINP_MinAllowed = 0,",
+            "\tINP_MaxScale = 100.0,",
+            "\tINP_Default = 4.0,",
+            "})",
+        ],
+        "description": "Add Slider Control to Fusion's Inspector Page"
+    },
+
+    "Add TextEdit Control": {
+        "prefix": ":atextedit",
+        "scope": "fuse",
+        "body": [
+            "In${1:TextEntry} = self:AddInput('${2:TextEdit Label}', '${3:Text}', {",
+            "\tLINKID_DataType=\"Text\",",
+            "\tINPID_InputControl = \"TextEditControl\",",
+            "\tINPS_DefaultText = \"Type something...\",",
+            "\tTEC_Lines = 3,        -- height of text entry (default is 8)",
+            "\tTEC_Wrap = true,      -- automatic word-wrapping (default is false)",
+            "\tTEC_ReadOnly = false, -- default is false (you should also set INP_External = false)",
+            "\tINP_External = false,",
+            "\tTEC_CharLimit = 40,	-- maximum number of allowed characters (default is 0, no limit)",
+            "\tTEC_DeferSetInputs = true, -- call NotifyChanged when focus is lost (default is false, call on every key stroke)",
+            "})",
+        ],
+        "description": "Add TextEdit Control to Fusion's Inspector Page"
+    },
+
+    "Add Output Control": {
+        "prefix": ":aoutput",
+        "scope": "fuse",
+        "body": [
+            "Out${0:variableName} = self:AddInput('${2:labelname}', '${2}', {",
+            "\tLINKID_DataType='${3|Image,FuID,Gradient,Number,Particles,Point,Text|}',",
+            "\tLINK_MAIN = 1",
+            "})",
+        ],
+        "description": "Add an input control for a Fuse"
+    },
+
+    "Control Nest":{
+        "prefix": ":anest",
+        "scope": "fuse",
+        "body": [
+            "self:BeginControlNest(\"${1:Control Name}\", \"${2:ScriptName}\", ${3|false,true|}, {})",
+            "\t$0",
+            "self:EndControlNest()",
+        ],
+        "description": "Creates a control nest for a control group"
     }
 }

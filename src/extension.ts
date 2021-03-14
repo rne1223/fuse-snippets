@@ -1,7 +1,10 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
-import { privateEncrypt } from 'crypto';
+// import { privateEncrypt } from 'crypto';
 import * as vscode from 'vscode';
+
+// Set file associations
+vscode.workspace.getConfiguration('files').update('associations', { "*.fuse": "lua" }, vscode.ConfigurationTarget.Workspace); 
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -21,6 +24,7 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 	context.subscriptions.push(disposable);
+
 }
 
 // this method is called when your extension is deactivated

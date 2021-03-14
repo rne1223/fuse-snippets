@@ -1,20 +1,48 @@
 // See https://go.microsoft.com/fwlink/?LinkId=733558
 // for the documentation about the tasks.json format
 {
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"type": "npm",
-			"script": "watch",
-			"problemMatcher": "$tsc-watch",
-			"isBackground": true,
-			"presentation": {
-				"reveal": "never"
-			},
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			}
-		}
-	]
+    "version": "2.0.0",
+    "windows": {
+        "options": {
+            "shell": {
+                "executable": "C:\\Windows\\System32\\cmd.exe",
+                "args": [
+                    "/c"
+                ]
+            }
+        }
+    },
+    "tasks": [
+        {
+            "label": "Start Resolve",
+            "group": "test",
+            "type": "shell",
+            "windows":{
+                "command": "start Resolve.exe",
+            },	
+            "problemMatcher": []
+        },
+        {
+            "label": "Kill Resolve",
+            "group": "test",
+            "type": "shell",
+            "windows":{
+                "command": "taskkill /IM Resolve.exe",
+            },	
+            "problemMatcher": []
+        },
+        {
+            "type": "npm",
+            "script": "watch",
+            "problemMatcher": "$tsc-watch",
+            "isBackground": true,
+            "presentation": {
+                "reveal": "never"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
 }

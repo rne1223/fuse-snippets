@@ -12,7 +12,7 @@
   ],
   "activationEvents": [
     "onLanguage:lua",
-    "onCommand:fuse-snippets.helloWorld"
+    "onCommand:fuse-snippets.CreateVars"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -23,9 +23,9 @@
       }
     ],
     "commands":{
-      "title": "Hello",
+      "title": "Create Vars",
       "category": "Fuse-snippets",
-      "command": "fuse-snippets.helloWorld"
+      "command": "fuse-snippets.CreateVars"
     }
 
   },

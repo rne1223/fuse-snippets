@@ -10,61 +10,94 @@ vscode.workspace.getConfiguration('files').update('associations', { "*.fuse": "l
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-	setExternalLibrary(true);
+    setExternalLibrary(true);
+    console.log("running activate");
+
+    const disposable = vscode.commands.registerCommand('fuse-snippets.CreateVars', () => {
+        // The code you place here will be executed every time your command is executed
+        const editor = vscode.window.activeTextEditor;
+
+        if(!editor) { 
+            vscode.window.showErrorMessage('Please select a Fuse file.');
+            console.log("No active editor!");
+            return; 
+        }	
+        
+        const lines = editor.document.getText().split('\n');
+
+        // Get non-commented variables from text
+        let arrVars = [];
+        for (const line in lines) {
+
+            let currLine = lines[line]
+
+            if (!currLine.includes('--') && currLine.includes("self:")) {
+                arrVars.push(currLine.match("In(.*)="));
+            }
+        }
 
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('fuse-snippets.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		console.log("Hello world");
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from fuse-snippets!');
-	});
+        // Find line for function Process()
+        const pos = lines.findIndex(el => el.match("function.*Process.*()")); 
 
-	context.subscriptions.push(disposable);
+        const processFunc = editor.document.lineAt(pos);
+        // Add some space 
+        editor.edit(editBuilder => {
+            editBuilder.insert(new vscode.Position(pos,processFunc.text.length), "\n\n");
+        })
 
+        arrVars.forEach(el => {
+
+            if(el) {
+                const lside = el[1].toLocaleLowerCase();
+                const rside = el[0].split(" ");
+                const insert = new vscode.SnippetString(`\tlocal \$\{1:${lside}\} = ${rside[0]}:GetValue(req)\${2}\n`);
+                editor.insertSnippet(insert,new vscode.Position(pos+1,0));
+            }
+        });
+        
+        // vscode.window.showInformationMessage('Hello World from fuse-snippets!');
+    });
 }
 
 // this method is called when your extension is deactivated
 export function deactivate() {
-	setExternalLibrary(false);
+    setExternalLibrary(false);
 }
 
 function setExternalLibrary(enable: boolean) {
-	// console.log("sumneko.lua");
-	let name = "sumneko.lua" // your extension id
-	// get emmylua path
-	let extension = vscode.extensions.getExtension(name)
-	let path = extension?.extensionPath+"\\FuseEmmyLua"
+    // console.log("sumneko.lua");
+    let name = "sumneko.lua" // your extension id
+    // get emmylua path
+    let extension = vscode.extensions.getExtension(name)
+    let path = extension?.extensionPath+"\\FuseEmmyLua"
 
-	// get configuration
-	let luaConfig = vscode.workspace.getConfiguration("Lua")
-	
-	let config: string[] | undefined = luaConfig.get("workspace.library")
-	if (config) {
-		
-		// remove any older release versions of our extension path e.g. "publisher.name-0.0.1"
-		for (let i = config.length-1; i >= 0; i--) {
-			const el = config[i]
-			if (el.indexOf(name) > -1 && el.indexOf(path) == -1) {
-				config.splice(i, 1)
-			}
-		}
+    // get configuration
+    let luaConfig = vscode.workspace.getConfiguration("Lua")
+    
+    let config: string[] | undefined = luaConfig.get("workspace.library")
+    if (config) {
+        
+        // remove any older release versions of our extension path e.g. "publisher.name-0.0.1"
+        for (let i = config.length-1; i >= 0; i--) {
+            const el = config[i]
+            if (el.indexOf(name) > -1 && el.indexOf(path) == -1) {
+                config.splice(i, 1)
+            }
+        }
 
-		// add or remove path
-		const index = config.indexOf(path)
-		if (enable) {
-			if (index == -1) {
-				config.push(path)
-			}
-		}
-		else {
-			if (index > -1) {
-				config.splice(index, 1)
-			}
-		}
-		luaConfig.update("workspace.library", config, true)
-	}
+        // add or remove path
+        const index = config.indexOf(path)
+        if (enable) {
+            if (index == -1) {
+                config.push(path)
+            }
+        }
+        else {
+            if (index > -1) {
+                config.splice(index, 1)
+            }
+        }
+        luaConfig.update("workspace.library", config, true)
+    }
 }

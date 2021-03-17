@@ -20,19 +20,12 @@
             "\tREG_NoObjMatCtrls       = true,",
             "\tREG_NoMotionBlurCtrls   = true,",
             "\tREG_NoPreCalcProcess    = true,  -- call Process for precalc requests (instead of PreCalcProcess)",
-            "\tREG_NoObjMatCtrls       = true,",
-            "\tREG_NoMotionBlurCtrls   = true,",
+            "\tREG_Fuse_NoEdit         = false,",
+            "\tREG_Fuse_NoReload       = false,",
             "})",
             "",
             "",
             "function Create()",
-            "\tInBlank = self:AddInput(\"\", \"Blank\", {",
-            "\t\tLINKID_DataType = \"Number\",",
-            "\t\tINPID_InputControl = \"LabelControl\",",
-            "\t\tINP_External = false,",
-            "\t})",
-            "",
-            "",
             "\tInImage = self:AddInput(\"Input\", \"Input\", {",
             "\t\tLINKID_DataType = \"Image\",",
             "\tLINK_Main = 1,",
@@ -43,6 +36,10 @@
             "\t\tLINKID_DataType = \"Image\",",
             "\t\tLINK_Main = 1,",
             "\t})",
+            "",
+            "",
+            "\t${2}",
+            "",
             "end",
             "",
             "",
@@ -80,17 +77,8 @@
         "description": "Registration Class for a Fuse. This is needed"
     },
 
-    "Attributes for Inputs": {
-        "prefix": "!ip",
-        "scope": "fuse",
-        "body": [
-            "${1|LINKID_DataType,INPID_InputControl,INP_External|} = ${2},",
-        ],
-        "description": "Log output to console"
-    },
-
     "Generic Add Input": {
-        "prefix": ":ainput",
+        "prefix": "ainput",
         "scope": "fuse",
         "body": [
             "In${1:variableName} = self:AddInput('${2:labelname}', '${2}', {",
@@ -102,7 +90,7 @@
     },
 
     "Add Input Button Control ": {
-        "prefix": ":abutton",
+        "prefix": "abutton",
         "scope": "fuse",
         "body": [
             "In${1:Button} = self:AddInput('${2:This is a button}', '${3:ButtonLabel1}', {",
@@ -117,7 +105,7 @@
     },
 
     "Add Input Checkbox Control ": {
-        "prefix": ":acheckbox",
+        "prefix": "acheckbox",
         "scope": "fuse",
         "body": [
             "In${1:Checkbox} = self:AddInput('${2:MyCheckbox}', '${2}', {",
@@ -132,7 +120,7 @@
     },
 
     "Add Input Color Control": {
-        "prefix": ":acolor",
+        "prefix": "acolor",
         "scope": "fuse",
         "body": [
             "In${1:ColorControl} = self:AddInput('${2|Red,Green,Blue,Alpha|}', '${2}', {",
@@ -150,7 +138,7 @@
     },
 
     "Add Input Combo Control": {
-        "prefix": ":acombo",
+        "prefix": "acombo",
         "scope": "fuse",
         "body": [
           "In${1:Operation} = self:AddInput('${2:Operator}', '${2}', {",
@@ -168,7 +156,7 @@
     },
 
     "Add Input Combo ID Control": {
-        "prefix": ":aidcombo",
+        "prefix": "aidcombo",
         "scope": "fuse",
         "body": [
             "In${1:Direction} = self:AddInput('${2:Direction of Camera}', '${3:Direction}', {",
@@ -185,7 +173,7 @@
     },
 
     "Add Input File Control": {
-        "prefix": ":afile",
+        "prefix": "afile",
         "scope": "fuse",
         "body": [
             "In${1:File} = self:AddInput('${2:File}', '${2}', {",
@@ -198,7 +186,7 @@
     },
 
     "Add Font File and Style Control": {
-        "prefix": ":afontfile",
+        "prefix": "afontfile",
         "scope": "fuse",
         "body": [
             "In${1:Font} = self:AddInput('${2:Font}', '${2}', {",
@@ -224,7 +212,7 @@
     },
 
     "Add Gradient Control": {
-        "prefix": ":agradient",
+        "prefix": "agradient",
         "scope": "fuse",
         "body": [
             "In${1:Gradient} = self:AddInput('${2:Gradient}', '${2}', {",
@@ -242,7 +230,7 @@
     },
 
     "Add Label Control": {
-        "prefix": ":alabel",
+        "prefix": "alabel",
         "scope": "fuse",
         "body": [
             "In${1:Label} = self:AddInput('${2:This is a label}', '${3:Label1}', {",
@@ -256,7 +244,7 @@
     },
 
     "Add MultiButton Control": {
-        "prefix": ":amultibutton",
+        "prefix": "amultibutton",
         "scope": "fuse",
         "body": [
             "In${1:Operation} = self:AddInput('${2:Operation}', '${2}', {",
@@ -273,7 +261,7 @@
     },
 
     "Add MultiButton ID Control": {
-        "prefix": ":aidmultibutton",
+        "prefix": "aidmultibutton",
         "scope": "fuse",
         "body": [
             "In${1:MultiButton} = self:AddInput('${2:Multibutton Label}', '${3:Multibutton1}', {",
@@ -292,7 +280,7 @@
     },
 
     "Add OffSet Control": {
-        "prefix": ":aoffset",
+        "prefix": "aoffset",
         "scope": "fuse",
         "body": [
             "In${1:Center} = self:AddInput('${2:Center}', '${2}', {",
@@ -307,7 +295,7 @@
     },
 
     "Add Range Control": {
-        "prefix": ":arange",
+        "prefix": "arange",
         "scope": "fuse",
         "body": [
             "In${1:Low} = self:AddInput('${2:My Low Value}', '${3:lowValue1}', {",
@@ -332,7 +320,7 @@
 
 
     "Add Screw Control": {
-        "prefix": ":ascrew",
+        "prefix": "ascrew",
         "scope": "fuse",
         "body": [
             "In${1:Screw} = self:AddInput('${2:Screw Label}', '${3:Screw1}', {",
@@ -347,7 +335,7 @@
     },
 
     "Add Slider Control": {
-        "prefix": ":aslider",
+        "prefix": "aslider",
         "scope": "fuse",
         "body": [
             "In${1:Slider} = self:AddInput('${2:Slider Label}', '${3:Slider1}', {",
@@ -362,7 +350,7 @@
     },
 
     "Add TextEdit Control": {
-        "prefix": ":atextedit",
+        "prefix": "atextedit",
         "scope": "fuse",
         "body": [
             "In${1:TextEntry} = self:AddInput('${2:TextEdit Label}', '${3:Text}', {",
@@ -373,7 +361,7 @@
             "\tTEC_Wrap = true,      -- automatic word-wrapping (default is false)",
             "\tTEC_ReadOnly = false, -- default is false (you should also set INP_External = false)",
             "\tINP_External = false,",
-            "\tTEC_CharLimit = 40,	-- maximum number of allowed characters (default is 0, no limit)",
+            "\tTEC_CharLimit = 40    -- maximum number of allowed characters default is 0 no limit",
             "\tTEC_DeferSetInputs = true, -- call NotifyChanged when focus is lost (default is false, call on every key stroke)",
             "})",
         ],
@@ -381,7 +369,7 @@
     },
 
     "Add Output Control": {
-        "prefix": ":aoutput",
+        "prefix": "aoutput",
         "scope": "fuse",
         "body": [
             "Out${0:variableName} = self:AddInput('${2:labelname}', '${2}', {",
@@ -393,7 +381,7 @@
     },
 
     "Control Nest":{
-        "prefix": ":anest",
+        "prefix": "anest",
         "scope": "fuse",
         "body": [
             "self:BeginControlNest(\"${1:Control Name}\", \"${2:ScriptName}\", ${3|false,true|}, {})",

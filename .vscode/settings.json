@@ -13,5 +13,8 @@
     ],
     "Lua.workspace.library": [
         "C:\\Users\\rne1223\\projects\\js\\vscode_extensions\\fuse-snippets\\FuseEmmyLua"
-    ]
+    ],
+    "files.associations": {
+        "*.fuse": "lua"
+    }
 }

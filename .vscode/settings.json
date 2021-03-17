@@ -12,7 +12,7 @@
         "lowercase-global"
     ],
     "Lua.workspace.library": [
-        "C:\\Users\\rne1223\\projects\\js\\vscode_extensions\\fuse-snippets\\FuseEmmyLua"
+        "C:\\Users\\rne1223\\projects\\js\\vscode_extensions\\fuse-snippets\\MyFuseEmmyLua"
     ],
     "files.associations": {
         "*.fuse": "lua"

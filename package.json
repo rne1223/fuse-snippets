@@ -4,7 +4,7 @@
   "description": "An snippet extension to help with the creation of Fuses for Black Magic Design's Fusion and Davinci Resolve software",
   "version": "0.1.0",
   "engines": {
-    "vscode": "^1.53.0"
+    "vscode": "^1.52.0"
   },
   "categories": [
     "Snippets",
@@ -23,7 +23,7 @@
       }
     ],
     "commands":{
-      "title": "Create Vars",
+      "title": "Create Vars in Process()",
       "category": "Fuse-snippets",
       "command": "fuse-snippets.CreateVars"
     }

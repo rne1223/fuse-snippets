@@ -361,7 +361,7 @@
             "\tTEC_Wrap = true,      -- automatic word-wrapping (default is false)",
             "\tTEC_ReadOnly = false, -- default is false (you should also set INP_External = false)",
             "\tINP_External = false,",
-            "\tTEC_CharLimit = 40    -- maximum number of allowed characters default is 0 no limit",
+            "\tTEC_CharLimit = 40,    -- maximum number of allowed characters default is 0 no limit",
             "\tTEC_DeferSetInputs = true, -- call NotifyChanged when focus is lost (default is false, call on every key stroke)",
             "})",
         ],

@@ -1,65 +1,70 @@
 {
-  "name": "fuse-snippets",
-  "displayName": "fuse-snippets",
-  "description": "An snippet extension to help with the creation of Fuses for Black Magic Design's Fusion and Davinci Resolve software",
-  "version": "0.1.0",
-  "engines": {
-    "vscode": "^1.52.0"
-  },
-  "categories": [
-    "Snippets",
-    "Other"
-  ],
-  "author": {
-    "email": "rne1223@gmail.com",
-    "name": "Rene Tellez Rodriguez"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rne1223/fuse-snippets"
-  },
-  "icon": "images/DaFusion_logo.png",
-  "activationEvents": [
-    "onLanguage:lua",
-    "onCommand:fuse-snippets.CreateVars"
-  ],
-  "main": "./out/extension.js",
-  "contributes": {
-    "snippets": [
-      {
-        "language": "lua",
-        "path": "./snippets/fuse.code-snippets"
-      }
-    ],
-    "commands":{
-      "title": "Create Vars in Process()",
-      "category": "Fuse-snippets",
-      "command": "fuse-snippets.CreateVars"
-    }
-
-  },
-  "extensionDependencies": [
-    "sumneko.lua"
-  ],
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
-  },
-  "devDependencies": {
-    "@types/glob": "^7.1.3",
-    "@types/mocha": "^8.0.4",
-    "@types/node": "^12.11.7",
-    "@types/vscode": "^1.54.0",
-    "@typescript-eslint/eslint-plugin": "^4.14.1",
-    "@typescript-eslint/parser": "^4.14.1",
-    "eslint": "^7.19.0",
-    "glob": "^7.1.6",
-    "mocha": "^8.2.1",
-    "typescript": "^4.1.3",
-    "vscode-test": "^1.5.0"
-  }
+	"name": "fuse-snippets",
+	"displayName": "fuse-snippets",
+	"description": "An snippet extension to help create Fuses for Fusion and Davinci Resolve",
+	"version": "0.1.0",
+	"engines": {
+		"vscode": "^1.54.0"
+	},
+	"categories": [
+		"Snippets",
+		"Other"
+	],
+	"publisher": "rne1223",
+	"author": {
+		"email": "rne1223@gmail.com",
+		"name": "Rene Tellez Rodriguez"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/rne1223/fuse-snippets"
+	},
+	"icon": "images/DaFusion_logo.png",
+	"activationEvents": [
+		"onLanguage:lua",
+		"onCommand:fuse-snippets.CreateVars"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"snippets": [
+			{
+				"language": "lua",
+				"path": "./snippets/fuse.code-snippets"
+			}
+		],
+		"commands": {
+			"title": "Create Vars in Process()",
+			"category": "Fuse-snippets",
+			"command": "fuse-snippets.CreateVars"
+		}
+	},
+	"extensionDependencies": [
+		"sumneko.lua"
+	],
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.4",
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.54.0",
+		"@typescript-eslint/eslint-plugin": "^4.14.1",
+		"@typescript-eslint/parser": "^4.14.1",
+		"eslint": "^7.19.0",
+		"glob": "^7.1.6",
+		"mocha": "^8.2.1",
+		"typescript": "^4.1.3",
+		"vscode-test": "^1.5.0"
+	},
+	"__metadata": {
+		"id": "6716bad2-6df5-472d-860c-06bf56972290",
+		"publisherDisplayName": "rne1223",
+		"publisherId": "338808e7-6b42-4b14-8b97-623009d2203c"
+	}
 }

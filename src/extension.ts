@@ -67,11 +67,11 @@ export function deactivate() {
 
 function setExternalLibrary(enable: boolean) {
     // console.log("sumneko.lua");
-    let name = "sumneko.lua" // your extension id
+    let name = "rne1223.fuse-snippets" // your extension id
     // get emmylua path
     let extension = vscode.extensions.getExtension(name)
-    // let path = extension?.extensionPath+"\\FuseEmmyLua"
-    let path = "C:\\Users\\rne1223\\projects\\js\\vscode_extensions\\fuse-snippets\\MyFuseEmmyLua"
+    let path = extension?.extensionPath+"\\MyFuseEmmyLua"
+    // let path = "C:\\Users\\rne1223\\projects\\js\\vscode_extensions\\fuse-snippets\\MyFuseEmmyLua"
 
     // get configuration
     let luaConfig = vscode.workspace.getConfiguration("Lua")

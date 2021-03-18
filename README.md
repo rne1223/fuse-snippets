@@ -7,7 +7,7 @@ Fuse-Snippets is a Vscode extension to help you create Fuses for Black Magic Des
 * Start a fuse by typing **fuse-init**
 ![fuse-init](images/fuse-init.gif)
 
-* A snippet for each input.
+* A snippet for each input
 ![snippets](images/snippets.gif)
 
 * Intellisense and documentation

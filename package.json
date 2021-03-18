@@ -10,6 +10,15 @@
     "Snippets",
     "Other"
   ],
+  "author": {
+    "email": "rne1223@gmail.com",
+    "name": "Rene Tellez Rodriguez"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rne1223/fuse-snippets"
+  },
+  "icon": "images/DaFusion_logo.png",
   "activationEvents": [
     "onLanguage:lua",
     "onCommand:fuse-snippets.CreateVars"

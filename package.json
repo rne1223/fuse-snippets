@@ -2,7 +2,7 @@
 	"name": "fuse-snippets",
 	"displayName": "fuse-snippets",
 	"description": "An snippet extension to help create Fuses for Fusion and Davinci Resolve",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"engines": {
 		"vscode": "^1.54.0"
 	},

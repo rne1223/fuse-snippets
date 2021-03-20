@@ -7,8 +7,17 @@ All notable changes to the "fuse-snippets" extension will be documented in this 
 - Document all attributes
 - Add command to download ShaderToy
 - Add command to create the installer
-- Intellisense for FuScript
+- Intellisense for FuScriipt
 
+## [0.1.2]
+### Added
+- Parameter Class Intellisense
+
+### Changed
+- Control nest snippet from anest to acontrolnest
+## [0.1.1]
+### Fix 
+- EmmyLua link to the extension
 ## [0.1.0]
 
 - Initial release

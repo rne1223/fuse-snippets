@@ -45,3 +45,4 @@ This is extension is in beta and there will be some edge cases that haven't been
 * numbr73 [youtube](https://www.youtube.com/channel/UCwb7CM0fYyyhymWMQVCJ4Lw) | [github](https://github.com/nmbr73/Shadertoys)
 * cedricduriau [github](https://github.com/cedricduriau)
 * LearnNowFx [youtube](https://www.youtube.com/channel/UC23pqsthkUONHvw38aqwkyA)
+* SecondMan for reviving VFXPedia [WSL](https://www.steakunderwater.com/wesuckless/index.php) | [VFXPedia](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4875.html?title=Main_Page)

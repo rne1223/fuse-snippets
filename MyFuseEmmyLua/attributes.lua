@@ -150,7 +150,9 @@ REG_Unpredictable = false
 ---
 REGS_Company = false
 
-
+--//////////////////////////////
+-- INPUT Attributes
+--//////////////////////////////
 ---
 --- The ID of the type of tool window control used by the input. 
 --- Valid values for INPID_InputControl are: 
@@ -174,82 +176,321 @@ REGS_Company = false
 --INPID_InputControl = "ButtonControl",
 ---```
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
----
+---@type string
 INPID_InputControl = ""
 
 
 
 -- Input attributes 
 -- https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes
--- INPID_InputControl string The ID of the type of tool window control used by the input.
 
--- INPID_PreviewControl string The ID of the type of display view control used by the input.
 
--- INPID_AddModifier string A tool of this type ID should be automatically created and connected to this input, at creation time.
 
--- INPID_DefaultID string Inputs of datatype "FuID" should use this ID as their default value.
+--- The ID of the type of display view control used by the input.
+---```lua
+---INPID_PreviewControl = 
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type string
+INPID_PreviewControl = ""
 
--- INPS_DefaultText string Inputs of datatype "Text" should use this string as their default.
 
--- INPS_StatusText string The text shown on the status bar on mouse hover.
+--- A tool of this type ID should be automatically created and connected to this input, at creation time.
+---```lua
+---INPID_AddModifier = ""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type string
+INPID_AddModifier = ""
 
--- INP_External boolean Whether this input can be animated or connected to a tool or modifier.
+---Inputs of datatype "FuID" should use this ID as their default value.
+---```lua
+---INPID_AddModifier = ""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type string
+ INPID_DefaultID = ""
 
--- INP_Active boolean This input's value is used in rendering.
 
--- INP_Required boolean The tool's result requires a valid Parameter from this input.
+---Inputs of datatype "Text" should use this string as their default.
+---```lua
+---INPS_DefaultText = ""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type string
+INPS_DefaultText ="" 
 
--- INP_Connected boolean The input is connected to another tool's Output.
 
--- INP_Priority integer Used to determine the order in which the tool's inputs are fetched.
+---The text shown on the status bar on mouse hover.
+---```lua
+---INPS_StatusText = ""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type string
+INPS_StatusText = ""
 
--- INP_Disabled boolean The input will not accept new values.
 
--- INP_DoNotifyChanged boolean The tool is notified of changes to the value of the input.
+---Whether this input can be animated or connected to a tool or modifier.
+---```lua
+---INP_External =""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type boolean 
+INP_External =""
 
--- INP_Integer boolean The input rounds all numbers to the nearest integer.
 
--- INP_NumSlots integer The number of values from different times that this input can fetch at once.
 
--- INP_ForceNotify boolean The tool is notified whenever a new parameter arrives, even if it is the same value.
+---This input's value is used in rendering.
+---```lua
+---INP_External =""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type boolean 
+INP_Active =""
 
--- INP_InitialNotify boolean The tool is notified at creation time of the initial value of the input.
 
--- INP_Passive boolean The value of this input will not affect the rendered result, and does not create an Undo event if changed.
 
--- INP_InteractivePassive boolean The value of this input will not affect the rendered result, but it can be Undone if changed.
+---The tool's result requires a valid Parameter from this input.
+---```lua
+---INP_External =""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type boolean 
+INP_Required =""
 
--- INP_AcceptTransform boolean This input will also accept TransformMatrix parameters.
 
--- INP_AcceptsMasks boolean This input will also accept Mask images.
 
--- INP_AcceptsGLImages boolean This input will also accept Images with attached OpenGL textures.
+---The input is connected to another tool's Output.
+---```lua
+---INP_External =""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type boolean 
+INP_Connected =""
 
--- INP_MinAllowed number Minimum allowed value - any numbers lower than this value are clipped.
 
--- INP_MaxAllowed number Maximum allowed value - any numbers higher than this value are clipped.
+---Used to determine the order in which the tool's inputs are fetched.
+---```lua
+---INP_External =""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type integer 
+INP_Priority =""
 
--- INP_MinScale number The lowest value that the input's control will normally display.
 
--- INP_MaxScale number The highest value that the input's control will normally display.
 
--- INP_Default string Inputs of datatype "Number" should default to this value.
+---The input will not accept new values.
+---```lua
+---INP_External =""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type boolean 
+INP_Disabled =""
 
--- INP_DefaultX string Inputs of datatype "Point" should use this as their default X value.
 
--- INP_DefaultY string Inputs of datatype "Point" should use this as their default Y value.
 
--- Link attributes 
+
+---The tool is notified of changes to the value of the input.
+---```lua
+---INP_External =""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type boolean 
+INP_DoNotifyChanged =""
+
+
+
+---The input rounds all numbers to the nearest integer.
+---```lua
+---INP_External =""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type boolean 
+INP_Integer =""
+
+
+---The number of values from different times that this input can fetch at once.
+---```lua
+---INP_External =""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type integer 
+INP_NumSlots =""
+
+
+---The tool is notified whenever a new parameter arrives, even if it is the same value.
+---```lua
+---INP_External =""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type boolean 
+INP_ForceNotify =""
+
+
+---The tool is notified at creation time of the initial value of the input.
+---```lua
+---INP_InitialNotify =""
+--INP_External =""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type boolean 
+INP_InitialNotify =""
+
+
+---The value of this input will not affect the rendered result, and does not create an Undo event if changed.
+---```lua
+---INP_Passive =""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type boolean 
+INP_Passive =""
+
+
+---The value of this input will not affect the rendered result, but it can be Undone if changed.
+---```lua
+---INP_InteractivePassive =""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type boolean 
+INP_InteractivePassive =""
+
+
+---This input will also accept TransformMatrix parameters.
+---```lua
+---INP_AcceptTransform =""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type boolean 
+INP_AcceptTransform =""
+
+
+
+---This input will also accept Mask images.
+---```lua
+---INP_AcceptsMasks=""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type boolean 
+INP_AcceptsMasks=""
+
+
+
+
+---This input will also accept Images with attached OpenGL textures.
+---```lua
+---INP_AcceptsGLIma = ""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type boolean 
+INP_AcceptsGLImages =""
+
+
+
+
+---Minimum allowed value - any numbers lower than this value are clipped.
+---```lua
+---INP_MinAllowed =
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type number 
+INP_MinAllowed =""
+
+
+---Maximum allowed value - any numbers higher than this value are clipped.
+---```lua
+---INP_MaxAllowed =
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type number 
+INP_MaxAllowed =""
+
+
+---The lowest value that the input's control will normally display.
+---```lua
+---INP_MinScale =""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type number 
+INP_MinScale =""
+
+
+---The highest value that the input's control will normally display.
+---```lua
+---INP_MaxScale =""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type number 
+INP_MaxScale =""
+
+
+---Inputs of datatype "Number" should default to this value.
+---```lua
+---INP_Default =""
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type string 
+INP_Default =""
+
+
+---Inputs of datatype "Point" should use this as their default X value.
+---```lua
+---INP_DefaultX ="100.0"
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type string 
+INP_DefaultX =""
+
+
+---Inputs of datatype "Point" should use this as their default Y value.
+---```lua
+---INP_DefaultY ="22.0"
+---```
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type string 
+INP_DefaultY =""
+
+
+
+--///////////////////
+-- LINK attributes 
+--///////////////////
+
 --https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexd1de.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Link/Attributes
--- LINKS_Name string The full name of this link.
 
--- LINKID_ID string The script ID of this link.
 
--- LINKID_DataType string The type of Parameter (e.g. Number, Point, Text, Image) this link accepts.
+---The full name of this link.
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type string 
+LINKS_Name =""
 
--- LINKID_AddAfterID string Controls for this input should appear after the input with the specified ID.
+---The script ID of this link.
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type string 
+LINKID_ID =""
 
--- LINK_Main integer Values of 1 or higher make this input/output visible on the flow view. 1=Background, 2=Foreground, etc.
+
+---The type of Parameter (e.g. Number, Point, Text, Image) this link accepts.
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type string 
+LINKID_DataType =""
+
+---Controls for this input should appear after the input with the specified ID.
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type string 
+LINKID_AddAfterID =""
+
+---Values of 1 or higher make this input/output visible on the flow view. 1=Background, 2=Foreground, etc.
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+---@type integer 
+LINK_Main =""
+
+
+
+
+--[[LINKS_Name and LINKID_ID are the first two string parameters of self:AddInput(...). This differs from the eyeonscript API, where the input's name and script ID can be retrieved via INPS_Name and INPS_ID respectively.
+LINK_ForceSave: this attribute will cause an input to save its value even if it's set to its default. This is most useful for image size sliders that have a dynamic default based on the comp's defaults. They should, of course, keep their values when copied to a comp with different format.
+LINK_DoNotSave: the input won't get saved to the comp file which means it will receive its default value next time you open the composition. It's useful for hidden inputs that your Fuse might use to store some internal values or for sliders that are only supposed to display calculation results instead of receiving user input.
+--]]
 
 -- Image Attributes https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes
 --[[ 

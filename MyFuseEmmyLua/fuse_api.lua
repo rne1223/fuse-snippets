@@ -123,8 +123,8 @@ function Object:GetAttr() end
     --//////////////////////////
     -- Link Class
     --//////////////////////////
-    ---@class Link : Object 
-    local Link = {}
+        ---@class Link : Object 
+        local Link = {}
 
         --///////////////////
         -- Input class
@@ -165,6 +165,7 @@ function Object:GetAttr() end
     -- Parameter class
     --/////////////////////////
         ---@class Parameter : Object 
+        ---@field public Metadata any
         local Parameter = {}
         function Parameter:Clip() end
         ---The Copy method is returns a new Image object which is a copy of the current image.
@@ -195,8 +196,116 @@ function Object:GetAttr() end
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index03d1.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Request)
             ---@field Y number 
         --/////////////////////////
-        -- SubParameter class
+        -- END SubParameter class
         --/////////////////////////
+
+        --/////////////////////////
+        -- Image Class 
+        --/////////////////////////
+            ---@class Image : Parameter
+            ---Contains a table of image metadata (or nil if no metadata is available) that can both be read and written.
+            ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
+            ---@field Metadata any
+            ---Contains the actual size of the pixel area that may be accessed. Writing outside of its bounds may crash Fusion.
+            ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
+            ---@field DataWindow any
+            ---Specifies the area for which the image is valid (usually the Region of interest. If a new request that is just a subarea of the old one is performed, no re-rendering will take place. You can test this in the viewport yourself).
+            ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
+            ---@field ValidWindow any
+            ---The color depth of the image. The return value is an index from the IMG_Depth attribute in Attributes.
+            ---@field Depth	Integer
+            Width Integer. The current width and height of the image in pixels. If the image is in Proxy, this is the actual width and height
+            Height Integer. The current width and height of the image in pixels. If the image is in Proxy, this is the actual width and height
+            OriginalWidth 	Integer. The width and height of the image in pixels. This is always the original width and height, regardless of the current proxy settings.
+            OriginalHeight	Integer. The width and height of the image in pixels. This is always the original width and height, regardless of the current proxy settings.
+            XScale / YScale	Number. The current X and Y pixel aspect of the image.
+            OriginalXScale / OriginalYScale	Number. The original X and Y pixel aspect of the image, regardless of current proxy settings.
+            XOffset / YOffset	Number.
+            Field	Number.
+            ProxyScale	Number. The current proxy scaling of the image.
+            local Image = {} 
+        	---Destructively applies a matrix of color operations
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
+            function Image:ApplyMatrix() end
+            ---Applies a matrix of color operations to a new image
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
+            function Image:ApplyMatrixOf() end
+            ---Fades and dissolves between images
+            function Image:BlendOf() end
+            ---Softens an image
+            function Image:Blur() end
+            ---Applies various math and boolean operations
+            function Image:ChannelOpOf() end
+            ---Create a copy of the image
+            function Image:CopyOf() end
+            ---Crops or offset an image
+            function Image:Crop() end
+            ---Converts between RGB,HLS,YUV and others
+            function Image:CSConvert() end
+            ---A min/max operation used to contract or expand the contents of an image [Fusion 7]
+            function Image:ErodeDilate() end
+            ---Sets all pixels to a single colour
+            function Image:Fill() end
+            ---Applies a power operation to all pixels
+            function Image:Gamma() end
+            ---Multiplies all pixels by a given value
+            function Image:Gain() end
+            ---Reads the color of the image's canvas area
+            function Image:GetCanvasColor() end
+            ---Reads the value of a single pixel
+            function Image:GetPixel() end
+            ---Construct a new Image object
+            function Image:Image() end
+            ---Overlays a foreground on the background image
+            function Image:Merge() end
+            ---Overlays a foreground and background to a new image
+            function Image:MergeOf() end
+            ---Applies a function to each pixel using multiple threads
+            function Image:MultiProcessPixels() end
+            ---Simple destructive additive merge
+            function Image:OMerge() end
+            ---Simple destructive subtractive merge
+            function Image:OXMerge() end
+            ---Applies a function to each pixel
+            function Image:ProcessPixels() end
+            ---Change the resolution of an image
+            function Image:Resize() end
+            ---Releases refcount, used to delete an image
+            function Image:Recycle() end
+            ---Releases refcount, used to delete an image's summed-area table
+            function Image:RecycleSAT() end
+            ---Fetch pixel with bilinear filtering, returns black edges
+            function Image:SamplePixelB() end
+            ---Fetch pixel with bilinear filtering, returns duplicate edges
+            function Image:SamplePixelD() end
+            ---Fetch pixel with bilinear filtering, returns wrapped edges
+            function Image:SamplePixelW() end
+            ---Calculates normalised sum of a rectangular area, black edges
+            function Image:SampleAreaB() end
+            ---Calculates normalised sum of a rectangular area, duplicate edges
+            function Image:SampleAreaD() end
+            ---Calculates normalised sum of a rectangular area, wrapped edges
+            function Image:SampleAreaW() end
+            ---Increases or decreases color saturation
+            function Image:Saturate() end
+            ---Changes the color of the image's canvas area
+            function Image:SetCanvasColor() end
+            ---Change the value of a single pixel
+            function Image:SetPixel() end
+            ---Translate, Rotate, Scale and Flip an image
+            function Image:Transform() end
+            ---Add a refcount to the image
+            function Image:Use() end
+            ---Add a refcount to the summed-area table
+            function Image:UseSAT() end
+            ---Will fill all channels with zeros.
+            function Image:Clear() end
+            ---Returns the number of bytes or 0 if the channel is not present.
+            function Image:GetChanSize(<channel>) end
+        --/////////////////////////
+        -- END Image Class 
+        --/////////////////////////
+
     --/////////////////////////
     -- Parameter class
     --/////////////////////////
@@ -231,12 +340,6 @@ function Object:GetAttr() end
     --//////////////////////
     -- End of Request class
     --//////////////////////
-
-
-
-
-
-
 
 
 ---@alias classType 

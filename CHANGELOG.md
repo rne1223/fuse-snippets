@@ -12,6 +12,11 @@ All notable changes to the "fuse-snippets" extension will be documented in this 
 ## [0.1.2]
 ### Added
 - Parameter Class Intellisense
+- Image Class Intellisense
+- Prelimirary Fusion Api
+- Furegclass attributes
+- Input attributes
+- Link attributes
 
 ### Changed
 - Control nest snippet from anest to acontrolnest

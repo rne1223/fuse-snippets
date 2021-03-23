@@ -18,13 +18,15 @@ Fuse-Snippets is a Vscode extension to help you create Fuses for Black Magic Des
 
 ## Requirements
 
-Either Fusion or Davinci Resolve.
+Either [Fusion](https://www.blackmagicdesign.com/products/fusion/) or [Davinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve/) and [VScode](https://code.visualstudio.com/download)
 
 ## Known Issues
 
 Hopefully none :crossed_fingers:
 
 ## Release Notes
+### 0.1.1
+Minor release fixing some paths
 
 ### 0.1.0
 

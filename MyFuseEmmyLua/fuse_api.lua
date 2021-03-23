@@ -213,16 +213,44 @@ function Object:GetAttr() end
             ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
             ---@field ValidWindow any
             ---The color depth of the image. The return value is an index from the IMG_Depth attribute in Attributes.
-            ---@field Depth	Integer
-            Width Integer. The current width and height of the image in pixels. If the image is in Proxy, this is the actual width and height
-            Height Integer. The current width and height of the image in pixels. If the image is in Proxy, this is the actual width and height
-            OriginalWidth 	Integer. The width and height of the image in pixels. This is always the original width and height, regardless of the current proxy settings.
-            OriginalHeight	Integer. The width and height of the image in pixels. This is always the original width and height, regardless of the current proxy settings.
-            XScale / YScale	Number. The current X and Y pixel aspect of the image.
-            OriginalXScale / OriginalYScale	Number. The original X and Y pixel aspect of the image, regardless of current proxy settings.
-            XOffset / YOffset	Number.
-            Field	Number.
-            ProxyScale	Number. The current proxy scaling of the image.
+            ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
+            ---@field Depth number	
+            ---The current width and height of the image in pixels. If the image is in Proxy, this is the actual width and height
+            ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
+            ---@field Width number 
+            ---The current width and height of the image in pixels. If the image is in Proxy, this is the actual width and height
+            ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
+            ---@field  Height number 
+            ---The width and height of the image in pixels. This is always the original width and height, regardless of the current proxy settings.
+            ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
+            ---@field OriginalWidth number 
+            ---The width and height of the image in pixels. This is always the original width and height, regardless of the current proxy settings.
+            ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
+            ---@field OriginalHeight integer
+            ---he current X and Y pixel aspect of the image.
+            ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
+            ---@field XScale number 
+            ---The current X and Y pixel aspect of the image.
+            ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
+            ---@field YScale number
+            ---The original X and Y pixel aspect of the image, regardless of current proxy settings.
+            ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
+            ---@field OriginalXScale number
+            ---The original X and Y pixel aspect of the image, regardless of current proxy settings.
+            ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
+            ---@field OriginalYScale number
+            ---No documents at the moment 
+            ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
+            ---@field XOffset number 
+            ---No documents at the moment 
+            ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
+            ---@field YOffset number
+            ---No documents at the moment 
+            ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
+            ---@field Field	number
+            ---The current proxy scaling of the image.
+            ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
+            ---@field ProxyScale number
             local Image = {} 
         	---Destructively applies a matrix of color operations
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
@@ -301,7 +329,9 @@ function Object:GetAttr() end
             ---Will fill all channels with zeros.
             function Image:Clear() end
             ---Returns the number of bytes or 0 if the channel is not present.
-            function Image:GetChanSize(<channel>) end
+            ---@alias channel 
+            ---|>'<channel>' # 
+            function Image:GetChanSize(channel) end
         --/////////////////////////
         -- END Image Class 
         --/////////////////////////

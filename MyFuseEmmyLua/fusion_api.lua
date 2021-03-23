@@ -31,7 +31,7 @@ function fusion:GetGlobalPathMap()end
 function fusion:CreateMail()end
 --- Specifies the full path and name of the file to open
 ---@param filename string @define Specifies the full path and name of the file to open
----@param mode constant @define Specifies the mode(s) of file access required, from a combination of the following constants:
+---@param mode number @define Specifies the mode(s) of file access required, from a combination of the following constants:
 ---@return any @define An eyeonScript File object (see the IOClass documentation), or nil if the open fails.
 function fusion:OpenFile(filename,mode)end
 ---@param name string

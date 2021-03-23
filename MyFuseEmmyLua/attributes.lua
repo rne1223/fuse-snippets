@@ -493,8 +493,8 @@ LINK_DoNotSave: the input won't get saved to the comp file which means it will r
 --]]
 
 -- Image Attributes https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes
---[[ 
-    IMG_Like	Set the IMG_Like attribute to an already existing image to copy that images attributes to the new image.
+
+  --[[   IMG_Like	Set the IMG_Like attribute to an already existing image to copy that images attributes to the new image.
     IMG_CopyChannels	Set this to false to create an Image with different channels than the IMG_Like Image. Use IMG_Channel to then specify the channels the new Image should contain. If no channels are specified, a 4 channel (RGBA) Image will be created.
     IMG_Width	Set the IMG_Width attribute to an integer value representing the actual width of the image in pixels.
     IMG_Height	Set the IMG_Height attribute to an integer value representing the actual height of the image in pixels.

@@ -77,20 +77,20 @@ function Object:GetAttr() end
         ---The AddInput function is typically found within the Create event function of a Fuse. It is used to add inputs (controls) to the tool. An input can be one of several control types, or an image type input which appears on the tool tile in the flow.
         ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexb419.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/ScriptOperator/AddInput)
         ---
-        ---@param labelname string @**required** This string value specifies the label displayed next to the input control in the inspector panel.
-        ---@param scriptname string @**required** This string value specifies the name of the input control for purposes of saving the value and for scripting it.
-        ---@param attributes table @**required** This argument accepts a table of attributes used to define the properties of the input. [Info](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+        ---@param labelname string @ This string value specifies the label displayed next to the input control in the inspector panel.
+        ---@param scriptname string @ This string value specifies the name of the input control for purposes of saving the value and for scripting it.
+        ---@param attributes table @ This argument accepts a table of attributes used to define the properties of the input. [Info](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
         ---@return Input
+        ---
         function scriptOperator:AddInput(labelname,scriptname,attributes) end
-
 
         ---
         ---The AddOutput function is typically found within the Create section of a Fuse. It is used to add outputs to the tool. A tool generally only has one output, which is connected to the next tool in the flow's processing tree. It is possible for a tool to have multiple outputs, but rarely useful.
         ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbdf.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/ScriptOperator/AddOutput)
         ---
-        ---@param labelname string @**required** This string value specifies the label displayed next to the input control in the inspector panel.
-        ---@param scriptname string @**required** This string value specifies the name of the input control for purposes of saving the value and for scripting it.
-        ---@param attributes table @**required** This argument accepts a table of attributes used to define the properties of the input. [Info](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+        ---@param labelname string @ This string value specifies the label displayed next to the input control in the inspector panel.
+        ---@param scriptname string @ This string value specifies the name of the input control for purposes of saving the value and for scripting it.
+        ---@param attributes table @ This argument accepts a table of attributes used to define the properties of the input. [Info](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
         ---@return Output 
         function scriptOperator:AddOutput(labelname,scriptname,attributes) end
 
@@ -259,76 +259,112 @@ function Object:GetAttr() end
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:ApplyMatrixOf() end
             ---Fades and dissolves between images
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:BlendOf() end
             ---Softens an image
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:Blur() end
             ---Applies various math and boolean operations
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:ChannelOpOf() end
             ---Create a copy of the image
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:CopyOf() end
             ---Crops or offset an image
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:Crop() end
             ---Converts between RGB,HLS,YUV and others
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:CSConvert() end
             ---A min/max operation used to contract or expand the contents of an image [Fusion 7]
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:ErodeDilate() end
             ---Sets all pixels to a single colour
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:Fill() end
             ---Applies a power operation to all pixels
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:Gamma() end
             ---Multiplies all pixels by a given value
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:Gain() end
             ---Reads the color of the image's canvas area
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:GetCanvasColor() end
             ---Reads the value of a single pixel
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:GetPixel() end
             ---Construct a new Image object
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:Image() end
             ---Overlays a foreground on the background image
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:Merge() end
             ---Overlays a foreground and background to a new image
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:MergeOf() end
             ---Applies a function to each pixel using multiple threads
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:MultiProcessPixels() end
             ---Simple destructive additive merge
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:OMerge() end
             ---Simple destructive subtractive merge
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:OXMerge() end
             ---Applies a function to each pixel
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:ProcessPixels() end
             ---Change the resolution of an image
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:Resize() end
             ---Releases refcount, used to delete an image
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:Recycle() end
             ---Releases refcount, used to delete an image's summed-area table
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:RecycleSAT() end
             ---Fetch pixel with bilinear filtering, returns black edges
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:SamplePixelB() end
             ---Fetch pixel with bilinear filtering, returns duplicate edges
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:SamplePixelD() end
             ---Fetch pixel with bilinear filtering, returns wrapped edges
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:SamplePixelW() end
             ---Calculates normalised sum of a rectangular area, black edges
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:SampleAreaB() end
             ---Calculates normalised sum of a rectangular area, duplicate edges
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:SampleAreaD() end
             ---Calculates normalised sum of a rectangular area, wrapped edges
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:SampleAreaW() end
             ---Increases or decreases color saturation
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:Saturate() end
             ---Changes the color of the image's canvas area
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:SetCanvasColor() end
             ---Change the value of a single pixel
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:SetPixel() end
             ---Translate, Rotate, Scale and Flip an image
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:Transform() end
             ---Add a refcount to the image
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:Use() end
             ---Add a refcount to the summed-area table
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:UseSAT() end
             ---Will fill all channels with zeros.
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:Clear() end
             ---Returns the number of bytes or 0 if the channel is not present.
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             ---@alias channel 
             ---|>'<channel>' # 
             function Image:GetChanSize(channel) end
@@ -382,6 +418,8 @@ function Object:GetAttr() end
 --//////////////////
 -- FuRegisterClass
 --//////////////////
+
+
 ---
 ---The AddInput function is typically found within the Create event function of a Fuse. It is used to add inputs (controls) to the tool. An input can be one of several control types, or an image type input which appears on the tool tile in the flow.
 ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexcab7.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass)

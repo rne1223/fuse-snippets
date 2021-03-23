@@ -7,10 +7,16 @@ All notable changes to the "fuse-snippets" extension will be documented in this 
 - Document all attributes
 - Add command to download ShaderToy
 - Add command to create the installer
-- Intellisense for FuScriipt
+- Intellisense for FuScript
 
 ## [0.1.2]
+
+### Fix
+
+- Autodetect fuse files without the use of settings.json
+
 ### Added
+
 - Parameter Class Intellisense
 - Image Class Intellisense
 - Prelimirary Fusion Api
@@ -19,10 +25,15 @@ All notable changes to the "fuse-snippets" extension will be documented in this 
 - Link attributes
 
 ### Changed
+
 - Control nest snippet from anest to acontrolnest
+
 ## [0.1.1]
-### Fix 
+
+### Fix
+
 - EmmyLua link to the extension
+
 ## [0.1.0]
 
 - Initial release

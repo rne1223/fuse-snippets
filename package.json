@@ -2,7 +2,7 @@
 	"name": "fuse-snippets",
 	"displayName": "fuse-snippets",
 	"description": "An snippet extension to help create Fuses for Fusion and Davinci Resolve",
-	"version": "0.1.2",
+	"version": "0.2.0",
 	"engines": {
 		"vscode": "^1.54.0"
 	},
@@ -32,11 +32,18 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"languages":[{
-			"id": "fuse",
-			"extensions": [".fuse"],
-			"aliases":["Fuse","fuse"]
-		}],
+		"languages": [
+			{
+				"id": "fuse",
+				"extensions": [
+					".fuse"
+				],
+				"aliases": [
+					"Fuse",
+					"fuse"
+				]
+			}
+		],
 		"snippets": [
 			{
 				"language": "lua",
@@ -72,10 +79,5 @@
 		"mocha": "^8.2.1",
 		"typescript": "^4.1.3",
 		"vscode-test": "^1.5.0"
-	},
-	"__metadata": {
-		"id": "6716bad2-6df5-472d-860c-06bf56972290",
-		"publisherDisplayName": "rne1223",
-		"publisherId": "338808e7-6b42-4b14-8b97-623009d2203c"
 	}
 }

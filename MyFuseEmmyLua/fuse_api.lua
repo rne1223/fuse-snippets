@@ -129,12 +129,14 @@ function Object:GetAttr() end
         --///////////////////
         -- Input class
         --///////////////////
+        
+
             ---@class Input : Link
             local Input = {}
             ---The GetValue function is used to retrieve the current values of a control from the current render request. The Request object is the only argument this function will accept. GetValue returns either a value or object which represents the current properties of an Input.
-            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexd93d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/GetAttr)
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4612.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/GetValue)
             ---@param req Request
-            ---@return SubParameter
+            ---@return Image | Gradient | Number | Particles | Point | Text | SubParameter
             function Input:GetValue(req) end
             function Input:GetSource() end
             function Input:SetSource() end
@@ -379,6 +381,9 @@ function Object:GetAttr() end
     --//////////////////
     -- Request class
     --//////////////////
+
+
+
         ---@class Request : Object
         ---@field Time osdate @ the current frame of the request
         ---@field BaseTime osdate
@@ -403,9 +408,17 @@ function Object:GetAttr() end
         ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index03d1.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Request)
         ---@return boolean
         function Request:GetTime() end
+        
+
     --//////////////////////
     -- End of Request class
     --//////////////////////
+
+
+
+--//////////////////
+-- FuRegisterClass
+--//////////////////
 
 
 ---@alias classType 
@@ -414,16 +427,9 @@ function Object:GetAttr() end
 ---| 'CT_SourceTool' # 
 ---| 'CT_Modifier'  # 
 ---| 'CT_ViewLUTPlugin' # 
-
---//////////////////
--- FuRegisterClass
---//////////////////
-
-
 ---
 ---The AddInput function is typically found within the Create event function of a Fuse. It is used to add inputs (controls) to the tool. An input can be one of several control types, or an image type input which appears on the tool tile in the flow.
 ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexcab7.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass)
----
 ---@param name string
 ---@param class classType 
 ---@param attributes table 

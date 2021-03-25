@@ -327,56 +327,109 @@ function Object:GetAttr() end
             ---```
             ---@param threadinitfunc function @This argument must be provided, but can be either nil. or a function.
             ---@param globalenv table @The MultiProcessPixels processfunc function does not have access to the variables in the global environment - it only has access to values passed to it in this table.
-            ---@param x integer @ x pixel location of lower left corner
-            ---@param y integer @ y pixel location of lower left corner
-            ---@param width integer @ width of the box 
-            ---@param height integer @ height of the box 
-            ---@param source_image Image @ An image object which will provide the pixels used for the calculations
+            ---@param xOffset integer @ x offset from the origin
+            ---@param yOffset integer @ y offset from the origin
+            ---@param width integer @ width from the point (xOffset,yOffset) 
+            ---@param height integer @ height form the point (xOffset, yOffset)
+            ---@param sourceImage Image @ An image object which will provide the pixels used for the calculations
             ---@param process function @ A function which will be executed for each pixel in the rage specified by earlier arguments
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index24e0.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/MultiProcessPixels)
-            function Image:MultiProcessPixels(threadinitfunc, globalenv, x, y, width, height, source_image, process) end
+            function Image:MultiProcessPixels(threadinitfunc, globalenv, xOffset, yOffset, width, height, sourceImage, process) end
 
             ---Simple destructive additive merge
             ---@param fg Image @ An image object ot use as the foreground for the merge
-            ---@param x_offset integer @ A numeric value which specifies an offset for the Foreground in pixels
-            ---@param y_offset integer @ A numeric value which specifies an offset for the Foreground in pixels
+            ---@param xOffset integer @ A numeric value which specifies an offset for the Foreground in pixels
+            ---@param yOffset integer @ A numeric value which specifies an offset for the Foreground in pixels
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9fef-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/OMerge)
-            function Image:OMerge(fg, x_offset, y_offset) end
+            function Image:OMerge(fg, xOffset, yOffset) end
 
-            ---Simple destructive subtractive merge
+            ---A destructive subtractive merge 
             ---@param fg Image @ An image object to use as the foregournd for the merge
-            ---@param x_offset integer @ A numeric value which specifies an offset for the Foreground in pixels
-            ---@param y_offset integer @ A numeric value which specifies an offset for the Foreground in pixels
+            ---@param xOffset integer @ x offset from the origin of the Foreground Image
+            ---@param yOffset integer @ y offset from the origin of the Foreground Image
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexacc6.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/OXMerge)
-            function Image:OXMerge(fg, x_offset, y_offset) end
+            function Image:OXMerge(fg, xOffset, yOffset) end
 
-            ---Applies a function to each pixel
-            ---[View documents]()
-            function Image:ProcessPixels() end
-            ---Change the resolution of an image
-            ---[View documents]()
-            function Image:Resize() end
+            ---The ProcessPixels function will process every pixel within a specified range of a source image using the function provided as its last argument
+            ---@param xOffset integer @ x offset from the origin of the Foreground Image
+            ---@param yOffset integer @ y offset from the origin of the Foreground Image
+            ---@param width integer @ width from the point (xOffset,yOffset) 
+            ---@param height integer @ height form the point (xOffset, yOffset)
+            ---@param images Image @ An image object which will provide the pixels sued for the calculations. At least one image is required, but additional images can be specified as well
+            ---@param process function @ A function which will be executed for each pixel in the range specified by earlier arguments
+            ---```lua               
+            --- img:ProcessPixels(xOffset,yOffset, width, height, images..., func)
+            ---```
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index2593.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/ProcessPixels)
+            function Image:ProcessPixels(xOffset, yOffset, width, height, images, process) end
+
+            ---The Resize function resizes an image to the dimensions specified in the functions attributes table
+            ---@param result Image @ The resulting image
+            ---@param attr table @ The table of attributes
+            ---```lua
+            --- Example:
+            ---     img:Resize(result, { RSZ_Filter = { "Nearest", "Box"} , RSZ_Window = {"Hanning"} , RSZ_Width = width, RSZ_Height = height, }) 
+            ---```
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index5008.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Resize)
+            function Image:Resize(result, attr) end
+
             ---Releases refcount, used to delete an image
-            ---[View documents]()
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:Recycle() end
-            ---Releases refcount, used to delete an image's summed-area table
-            ---[View documents]()
-            function Image:RecycleSAT() end
+
             ---Fetch pixel with bilinear filtering, returns black edges
-            ---[View documents]()
-            function Image:SamplePixelB() end
+            ---@param x integer The x coordinate of the pixel to be sampled, where 0 is the left edge
+            ---@param y integer The y coordinate of the pixel to be sampled, where 0 is the bottom edge
+            ---@param pixel Pixel A Pixel object that will be filled with the results
+            ---```lua
+            --- Example:
+            ---     img:SamplePixelB(10, 20, Pixel({R = 0.1, G = 0.2, B = 0.3, A = 1}))
+            ---```
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index89ce.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/SamplePixelB)
+            ---
+            function Image:SamplePixelB(x, y, pixel) end
+
             ---Fetch pixel with bilinear filtering, returns duplicate edges
-            ---[View documents]()
-            function Image:SamplePixelD() end
+            ---@param x integer The x coordinate of the pixel to be sampled, where 0 is the left edge
+            ---@param y integer The u coordinate of the pixel to be sampled, where 0 is the bottom edge
+            ---@param pixel Pixel A Pixel object that will be filled with the results
+            ---```lua
+            --- Example:
+            ---     img:SamplePixelD(10, 10, Pixel({R = 0.1, G = 0.2, B = 0.3, A = 1}))
+            ---```
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexbc63.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/SamplePixelD)
+            function Image:SamplePixelD(x, y, pixel) end
+
             ---Fetch pixel with bilinear filtering, returns wrapped edges
+            ---@param x integer The x coordinate of the pixel to be sampled, where 0 is the left edge
+            ---@param y integer The u coordinate of the pixel to be sampled, where 0 is the bottom edge
+            ---@param pixel Pixel A Pixel object that will be filled with the results
             ---[View documents]()
-            function Image:SamplePixelW() end
+            function Image:SamplePixelW(x, y, pixel) end
+
             ---Calculates normalised sum of a rectangular area, black edges
-            ---[View documents]()
-            function Image:SampleAreaB() end
+            ---@param x integer The x coordinate of the pixel to be sampled, where 0 is the left edge
+            ---@param y integer The u coordinate of the pixel to be sampled, where 0 is the bottom edge
+            ---@param pixel Pixel A Pixel object that will be filled with the results
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexb5a1.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/SampleAreaB)
+            function Image:SampleAreaB(x, y, pixel) end
+
             ---Calculates normalised sum of a rectangular area, duplicate edges
-            ---[View documents]()
-            function Image:SampleAreaD() end
+            ---```lua
+            --- Image:SampleAreaD(x1, y1, x2, y2, x3, y3, x4, y4, pixel)
+            ---```
+            ---@param x1 integer The x coordinate of the pixel to be sampled, where 0 is the left edge
+            ---@param y1 integer The y coordinate of the pixel to be sampled, where 0 is the bottom edge
+            ---@param x2 integer The x coordinate of the pixel to be sampled, where 0 is the left edge
+            ---@param y2 integer The y coordinate of the pixel to be sampled, where 0 is the bottom edge
+            ---@param x3 integer The x coordinate of the pixel to be sampled, where 0 is the left edge
+            ---@param y3 integer The y coordinate of the pixel to be sampled, where 0 is the bottom edge
+            ---@param x4 integer The x coordinate of the pixel to be sampled, where 0 is the left edge
+            ---@param y4 integer The y coordinate of the pixel to be sampled, where 0 is the bottom edge
+            ---@param pixel Pixel A Pixel object that will be filled with the results
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexf568.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/SampleAreaD)
+            function Image:SampleAreaD(x1, y1, x2, y2, x3, y3, x4, y4, pixel) end
+
             ---Calculates normalised sum of a rectangular area, wrapped edges
             ---[View documents]()
             function Image:SampleAreaW() end
@@ -395,12 +448,19 @@ function Object:GetAttr() end
             ---Add a refcount to the image
             ---[View documents]()
             function Image:Use() end
+
             ---Add a refcount to the summed-area table
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index43c3.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/UseSAT)
             function Image:UseSAT() end
+
+            ---Releases refcount, used to delete an image's summed-area table
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexab65-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/RecycleSAT)
+            function Image:RecycleSAT() end
+
             ---Will fill all channels with zeros.
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:Clear() end
+
             ---Returns the number of bytes or 0 if the channel is not present.
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             ---@alias channel 

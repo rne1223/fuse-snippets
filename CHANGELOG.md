@@ -8,6 +8,7 @@ All notable changes to the "fuse-snippets" extension will be documented in this 
 - Add command to download ShaderToy
 - Add command to create the installer
 - Intellisense for FuScript
+- fuzzy search docs
 
 ## [0.1.2]
 

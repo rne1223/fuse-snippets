@@ -3,159 +3,97 @@
 --//////////////////////////////
 
 
-
----A string value which sets the category a tool will appear in.
----```lua
----REGS_Category = "Fuses\\Examples",
----```
+---A string value which sets the category a tool will appear in.\
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
 REGS_Category = ""
----
----An optional 'friendly' name for the tool, which allows spaces.
----```lua
----REGS_Name = "Depth Transform GPU",
----```
----[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
----
-REGS_Name = ""
----
----A string value that defines the abbrieviation of the tools name. This is used in the toolbar menu and by the bins.
----```lua
----REGS_OpIconString = "Nul",
----```
----[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
----
-REGS_OpIconString = ""
----
----A short description of the tool, used in the various parts of the Fusion interface
----```lua
----REGS_OpDescription = "Null Fuse",
----```
----[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
----
-REGS_OpDescription = ""
----
---A boolean value (true/false) that determines if the tool provides an input for masks on the flow. Defaults to false.
----```lua
----REG_OpNoMask = false,
----```
----[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
----
-REG_OpNoMask = false
----
----A boolean value that determines if the tool works with proxies. Set this to true if the tool doesn't work with proxies. Default is false
----```lua
----REG_NoAutoProxy = false, works with proxies
----```
----[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
----
-REG_NoAutoProxy = false
----
----A boolean value (true/false) that determines if the tool provides the common Blend slider. Defaults to false.
----```lua
----REG_NoBlendCtrls = false,
----```
----[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
----
-REG_NoBlendCtrls = false
----
----A boolean value (true/false) that determines if the tool provides the common Matte Control options. Set this to true to prevent the mask controls from appearing. Defaults to false.
----```lua
----REG_NoObjMatCtrls = true, 
----```
----[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
----
-REG_NoObjMatCtrls = false
----
----A boolean value (true/false) that determines if the tool provides the common Motion Blur controls. Set this to true to prevent the Motion Blur controls from appearing. Defaults to false.
----```lua
----REG_NoMotionBlurCtrls = true,
----```
----[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
----
-REG_NoMotionBlurCtrls = false 
----
----A boolean value (true/false) that determines if the tool provides the controls for Global In and Out. Set to false to prevent these controls from appearing.
----Applies to Creator tools (ClassID = CT_SourceTool) only.
----```lua
----REG_Source_GlobalCtrls = true,
----```
----[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
----
-REG_Source_GlobalCtrls = false
----
---A boolean value (true/false) that determines if the tool provides the standard controls for image width and height. Set to false to prevent these controls from appearing. Applies to Creator tools (ClassID = CT_SourceTool) only.
----```lua
---- REG_Source_SizeCtrls = true,
----```
----[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
----
-REG_Source_SizeCtrls = false
----
----A boolean value (true/false) that determines if the tool provides the standard controls for image aspect. Set to false to prevent these controls from appearing. Applies to Creator tools (ClassID = CT_SourceTool) only.
----```lua
---- REG_Source_AspectCtrls = true,
----```
----[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
----
-REG_Source_AspectCtrls = false
----
----A boolean value (true/false) that determines if the tool provides the standard controls for setting the images color depth. Set to false to prevent these controls from appearing. Applies to Creator tools (ClassID = CT_SourceTool) only.
----```lua
----REG_Source_DepthCtrls = true,
----```
----[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
----
-REG_Source_DepthCtrls = false
----
----A boolean value (true/false) that allows you to use if Time within the tool. The default is false.
----```lua
---REG_TimeVariant = false,
----```
----[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
----
-REG_TimeVariant = false
----
----A boolean value (true/false) that determines if the tool displays the Edit button shown at the top of most Fuses. Defaults to false.
----```lua
---REG_Fuse_NoEdit = true,
----```
----[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
----
-REG_Fuse_NoEdit = false
----
----A boolean value (true/false) that determines if the tool displays the Reload button shown at the top of most Fuses. Defaults to false.
----```lua
---REG_Fuse_NoReload = true,
----```
----[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
----
-REG_Fuse_NoReload = false
----
----A Fusepic table can be created by saving a 160x120 image as a "Fuse Pic" file (.fusepic in Saver). This will create a text file containing the Fusepic table. Paste the contents of the text file into the top of the Fuse, before the FuRegisterClass() function.
----```lua
----REG_Fuse_TilePic= true,
----```
----[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
----
-REG_Fuse_TilePic = false
----
----A boolean value (true/false) that determines if the tool uses the cache. It can be of use when testing or debugging the tool. Defaults to false.
----```lua
----REG_Fuse_TilePic= false,
----```
----[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
----
-REG_Unpredictable = false
----
----A string that can be use to provide your company name
----```lua
----REGS_Company = "VFXPedia" 
----```
----[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
----
-REGS_Company = "" 
 
+---An optional 'friendly' name for the tool, which allows spaces.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
+REGS_Name = ""
+
+---A string value that defines the abbrieviation of the tools name. This is used in the toolbar menu and by the bins.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
+REGS_OpIconString = "Nul"
+
+---A short description of the tool, used in the various parts of the Fusion interface\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
+REGS_OpDescription = "Null Fuse"
+
+--A boolean value (true/false) that determines if the tool provides an input for masks on the flow. Defaults to false.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
+---@type bool
+REG_OpNoMask = false
+
+---A boolean value that determines if the tool works with proxies. Set this to true if the tool doesn't work with proxies. Default is false\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
+---@type bool
+REG_NoAutoProxy = false
+
+---A boolean value (true/false) that determines if the tool provides the common Blend slider. Defaults to false.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
+---@type bool
+REG_NoBlendCtrls = false
+
+---A boolean value (true/false) that determines if the tool provides the common Matte Control options. Set this to true to prevent the mask controls from appearing. Defaults to false.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
+---@type bool
+REG_NoObjMatCtrls = false
+
+---A boolean value (true/false) that determines if the tool provides the common Motion Blur controls. Set this to true to prevent the Motion Blur controls from appearing. Defaults to false.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
+---@type bool
+REG_NoMotionBlurCtrls = false 
+
+---A boolean value (true/false) that determines if the tool provides the controls for Global In and Out. Set to false to prevent these controls from appearing.\
+---Applies to Creator tools (ClassID = CT_SourceTool) only.
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
+---@type bool
+REG_Source_GlobalCtrls = false
+
+--A boolean value (true/false) that determines if the tool provides the standard controls for image width and height. Set to false to prevent these controls from appearing. Applies to Creator tools (ClassID = CT_SourceTool) only.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
+---@type bool
+REG_Source_SizeCtrls = false
+
+---A boolean value (true/false) that determines if the tool provides the standard controls for image aspect. Set to false to prevent these controls from appearing. Applies to Creator tools (ClassID = CT_SourceTool) only.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
+---@type bool
+REG_Source_AspectCtrls = false
+
+---A boolean that determines if the tool provides the standard controls for setting the images color depth. Set to false to prevent these controls from appearing. Applies to Creator tools (ClassID = CT_SourceTool) only.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
+---@type bool
+REG_Source_DepthCtrls = false
+
+---A boolean value (true/false) that allows you to use if Time within the tool. The default is false.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
+---@type bool
+REG_TimeVariant = false
+
+---A boolean value (true/false) that determines if the tool displays the Edit button shown at the top of most Fuses. Defaults to false.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
+---@type bool
+REG_Fuse_NoEdit = false
+
+---A boolean value (true/false) that determines if the tool displays the Reload button shown at the top of most Fuses. Defaults to false.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
+---@type bool
+REG_Fuse_NoReload = false
+
+---A Fusepic table can be created by saving a 160x120 image as a "Fuse Pic" file (.fusepic in Saver). This will create a text file containing the Fusepic table. Paste the contents of the text file into the top of the Fuse, before the FuRegisterClass() function.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
+---@type bool
+REG_Fuse_TilePic = false
+
+---A boolean value (true/false) that determines if the tool uses the cache. It can be of use when testing or debugging the tool. Defaults to false.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
+---@type bool
+REG_Unpredictable = false
+
+---A string that can be use to provide your company name\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
+---
+REGS_Company = "VFXPedia" 
 
 
 
@@ -164,135 +102,61 @@ REGS_Company = ""
 --//////////////////////////////
 
 
----@alias InputControls 
----|>'ButtonControl
----| 'CheckboxControl 
----| 'ColorControl 
----| 'ComboControl 
----| 'ComboIDControl 
----| 'FileControl 
----| 'FontFileControl 
----| 'GradientControl 
----| 'LabelControl 
----| 'MultiButtonControl 
----| 'MultiButtonIDControl 
----| 'OffsetControl 
----| 'RangeControl 
----| 'ScrewControl 
----| 'SliderControl 
----| 'TextEditControl
----
---- The ID of the type of tool window control used by the input. 
---- Valid values for INPID_InputControl are: 
----```lua
---INPID_InputControl = "ButtonControl",
----```
+--- The ID of the type of tool window control used by the input.\
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
----@type InputControls 
-INPID_InputControl = ""
+---@type inputControls 
+INPID_InputControl = "ButtonControl"
 
-
--- Input attributes 
--- https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes
-
-
-
----@alias PreviewControls 
----|>'ButtonControl 
----| 'AngleControl'
----| 'CrossHairControl'
----| 'ImgOverlayControl'
----| 'RectangleControl'
----| 'PointControl'
----| 'TransformControl'
---- The ID of the type of display view control used by the input.
----```lua
----INPID_PreviewControl = "ButtonControl"
----```
+--- The ID of the type of display view control used by the input.\
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
----@type PreviewControls 
-INPID_PreviewControl = ""
+---@type previewControls 
+INPID_PreviewControl =  "AngleControl"
 
 
 --- A tool of this type ID should be automatically created and connected to this input, at creation time.
----```lua
----INPID_AddModifier = ""
----```
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
 ---@type string
 INPID_AddModifier = ""
 
----Inputs of datatype "FuID" should use this ID as their default value.
----```lua
----INPID_AddModifier = ""
----```
+---Inputs of datatype "FuID" should use this ID as their default value.\
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
 ---@type string
  INPID_DefaultID = ""
 
-
----Inputs of datatype "Text" should use this string as their default.
----```lua
----INPS_DefaultText = ""
----```
+---Inputs of datatype "Text" should use this string as their default.\
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
 ---@type string
-INPS_DefaultText ="" 
+INPS_DefaultText = "Default Text" 
 
-
----The text shown on the status bar on mouse hover.
----```lua
----INPS_StatusText = ""
----```
+---The text shown on the status bar on mouse hover.\
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
 ---@type string
 INPS_StatusText = ""
 
-
----Whether this input can be animated or connected to a tool or modifier.
----```lua
----INP_External =""
----```
+---Whether this input can be animated or connected to a tool or modifier.\
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
----@type boolean 
-INP_External =""
+---@type bool 
+INP_External =  true
 
-
----This input's value is used in rendering.
----```lua
----INP_External =""
----```
+---This input's value is used in rendering.\
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
----@type boolean 
-INP_Active =""
+---@type bool 
+INP_Active =  true 
 
-
----The tool's result requires a valid Parameter from this input.
----```lua
----INP_External =""
----```
+---The tool's result requires a valid Parameter from this input.\
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
----@type boolean 
-INP_Required =""
+---@type bool
+INP_Required = true
 
-
----The input is connected to another tool's Output.
----```lua
----INP_External =""
----```
+---The input is connected to another tool's Output.\
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
----@type boolean 
-INP_Connected =""
+---@type bool
+INP_Connected =  true
 
-
----Used to determine the order in which the tool's inputs are fetched.
----```lua
----INP_External =""
----```
+---Used to determine the order in which the tool's inputs are fetched.\
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
 ---@type integer 
-INP_Priority =""
-
+INP_Priority = ""
 
 ---The input will not accept new values.
 ---```lua
@@ -302,7 +166,6 @@ INP_Priority =""
 ---@type boolean 
 INP_Disabled =""
 
-
 ---The tool is notified of changes to the value of the input.
 ---```lua
 ---INP_External =""
@@ -311,7 +174,6 @@ INP_Disabled =""
 ---@type boolean 
 INP_DoNotifyChanged =""
 
-
 ---The input rounds all numbers to the nearest integer.
 ---```lua
 ---INP_External =""
@@ -319,8 +181,6 @@ INP_DoNotifyChanged =""
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
 ---@type boolean 
 INP_Integer =""
-
-
 ---The number of values from different times that this input can fetch at once.
 ---```lua
 ---INP_External =""
@@ -328,8 +188,6 @@ INP_Integer =""
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
 ---@type integer 
 INP_NumSlots =""
-
-
 ---The tool is notified whenever a new parameter arrives, even if it is the same value.
 ---```lua
 ---INP_External =""
@@ -337,7 +195,6 @@ INP_NumSlots =""
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
 ---@type boolean 
 INP_ForceNotify =""
-
 
 ---The tool is notified at creation time of the initial value of the input.
 ---```lua
@@ -347,8 +204,6 @@ INP_ForceNotify =""
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
 ---@type boolean 
 INP_InitialNotify =""
-
-
 ---The value of this input will not affect the rendered result, and does not create an Undo event if changed.
 ---```lua
 ---INP_Passive =""
@@ -356,8 +211,6 @@ INP_InitialNotify =""
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
 ---@type boolean 
 INP_Passive =""
-
-
 ---The value of this input will not affect the rendered result, but it can be Undone if changed.
 ---```lua
 ---INP_InteractivePassive =""
@@ -365,8 +218,6 @@ INP_Passive =""
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
 ---@type boolean 
 INP_InteractivePassive =""
-
-
 ---This input will also accept TransformMatrix parameters.
 ---```lua
 ---INP_AcceptTransform =""
@@ -374,8 +225,6 @@ INP_InteractivePassive =""
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
 ---@type boolean 
 INP_AcceptTransform =""
-
-
 ---This input will also accept Mask images.
 ---```lua
 ---INP_AcceptsMasks=""
@@ -383,8 +232,6 @@ INP_AcceptTransform =""
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
 ---@type boolean 
 INP_AcceptsMasks=""
-
-
 ---This input will also accept Images with attached OpenGL textures.
 ---```lua
 ---INP_AcceptsGLIma = ""
@@ -392,8 +239,6 @@ INP_AcceptsMasks=""
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
 ---@type boolean 
 INP_AcceptsGLImages =""
-
-
 ---Minimum allowed value - any numbers lower than this value are clipped.
 ---```lua
 ---INP_MinAllowed =
@@ -402,93 +247,71 @@ INP_AcceptsGLImages =""
 ---@type number 
 INP_MinAllowed =""
 
-
 ---Maximum allowed value - any numbers higher than this value are clipped.
----```lua
----INP_MaxAllowed =
----```
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
 ---@type number 
 INP_MaxAllowed =""
 
-
 ---The lowest value that the input's control will normally display.
----```lua
----INP_MinScale =""
----```
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
 ---@type number 
 INP_MinScale =""
 
-
 ---The highest value that the input's control will normally display.
----```lua
----INP_MaxScale =""
----```
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
 ---@type number 
 INP_MaxScale =""
 
-
----Inputs of datatype "Number" should default to this value.
----```lua
----INP_Default =""
----```
+---Inputs of datatype "Number" should default to this value.\
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
 ---@type string 
 INP_Default =""
 
-
----Inputs of datatype "Point" should use this as their default X value.
----```lua
----INP_DefaultX ="100.0"
----```
+---Inputs of datatype "Point" should use this as their default X value.\
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
 ---@type string 
-INP_DefaultX =""
+INP_DefaultX = "100"
 
-
----Inputs of datatype "Point" should use this as their default Y value.
----```lua
----INP_DefaultY ="22.0"
----```
+---Inputs of datatype "Point" should use this as their default Y value. \
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
----@type string 
+---@type number 
 INP_DefaultY =""
 
+
+--//////////////////////////
+--ButtonControl Attributes
+--//////////////////////////
+
+---This attribute determines the alignment of the button. Valid values are \
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexcfbd.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/ButtonControl#Attributes)
+---@type alignment
+BTNC_Align = "Center"
+
+
+--//////////////////////////////
+-- End ButtonControl Attributes
+--/////////////////////////////
 
 
 --///////////////////
 -- LINK attributes 
 --///////////////////
 
-
----The full name of this link.
+---The full name of this link.\
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexd1de.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Link/Attributes)
 ---@type string 
 LINKS_Name =""
 
----The script ID of this link.
+---The script ID of this link.\
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexd1de.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Link/Attributes)
 ---@type string 
 LINKID_ID =""
 
 
----The type of Parameter (e.g. Number, Point, Text, Image) this link accepts.
+---The type of Parameter (e.g. Number, Point, Text, Image) this link accepts.\
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexd1de.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Link/Attributes)
----@alias LinkDataType 
----|>'Clip'
----| 'Copy'
----| 'Image'	
----| 'Number'	
----| 'Particles'	
----| 'Point'	
----| 'Text'	
----| 'GetData'	
----| 'SetData'	
----| 'InterpolateWith'
----@type LinkDataType
-LINKID_DataType =""
+---@type linkDataType
+LINKID_DataType = ""
 
 ---Controls for this input should appear after the input with the specified ID.
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexd1de.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Link/Attributes)
@@ -499,8 +322,6 @@ LINKID_AddAfterID =""
 ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexd1de.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Link/Attributes)
 ---@type integer 
 LINK_Main =""
-
-
 
 
 --[[LINKS_Name and LINKID_ID are the first two string parameters of self:AddInput(...). This differs from the eyeonscript API, where the input's name and script ID can be retrieved via INPS_Name and INPS_ID respectively.
@@ -568,3 +389,63 @@ LINK_DoNotSave: the input won't get saved to the comp file which means it will r
     "VectorX"
     "VectorY" 
 --]]
+--/////////////////////
+-- Blur Attributes https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur#Options_Table
+--/////////////////////
+
+--- The blur type is a string which represents the type of blur applied to the image.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur#Options_Table)
+---@type blurType
+BLUR_Type = ""
+
+--- Blur function affecting the **Red** channel. True enables blur for the channel. False disables it\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur#Options_Table)
+---@type bool
+BLUR_Red = true
+
+--- Blur function affecting the **Green** channel.True enables blur for the channel. False disables it\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur#Options_Table)
+---@type bool
+BLUR_Green = true
+
+--- Blur function affecting the **Blue** channel. True enables blur for the channel. False disables it\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur#Options_Table)
+---@type bool
+BLUR_Blue = true
+
+--- Blur function affecting the **Alpha** channel. True enables blur for the channel. False disables it\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur#Options_Table)
+---@type bool
+BLUR_Alpha = true
+
+---These tags specify the strength of the blur along the X. A value of 1 represents a blur equal to the width of the image.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur#Options_Table)
+BLUR_XSize = 0
+
+---These tags specify the strength of the blur along the Y axis. A value of 1 represents a blur equal to the height of the image.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur#Options_Table)
+BLUR_YSize = 0
+
+---A value between 0 and 1 which indicates how much of the original input image to blend into the result of the Blur.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur#Options_Table)
+BLUR_Blend = 0
+
+--- BLUR_Normalize is used when applying Glow to the blurred image.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur#Options_Table)
+BLUR_Normalize = 0
+
+--- The BLUR_RedScale attribute is a multiplier for the results of the glow applied with BLUR_Normalize.\ 
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur#Options_Table)
+BLUR_RedScale = 0
+
+--- The BLUR_GreenScale attribute is a multiplier for the results of the glow applied with BLUR_Normalize.\ 
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur#Options_Table)
+BLUR_GreenScale = 0
+
+--- The BLUR_BlueScale attribute is a multiplier for the results of the glow applied with BLUR_Normalize.\ 
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur#Options_Table)
+BLUR_BlueScale = 0
+
+--- The BLUR_AlphaScale attribute is a multiplier for the results of the glow applied with BLUR_Normalize.\ 
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur#Options_Table)
+BLUR_AlphaScale = 0

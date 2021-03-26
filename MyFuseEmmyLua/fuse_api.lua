@@ -209,6 +209,7 @@ function Object:GetAttr() end
         --/////////////////////////
         -- Image Class 
         --/////////////////////////
+
             ---@class Image : Parameter
             ---Contains a table of image metadata (or nil if no metadata is available) that can both be read and written.
             ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
@@ -259,56 +260,82 @@ function Object:GetAttr() end
             ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
             ---@field ProxyScale number
             local Image = {} 
+
             ---Destructively applies a matrix of color operations
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:ApplyMatrix() end
+
             ---Applies a matrix of color operations to a new image
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:ApplyMatrixOf() end
+
             ---Fades and dissolves between images
+            ---@param fg Image @ **required** The image to use as the foreground for the blend operation
+            ---@param map Image | integer @ **required** A numeric value that describes how much of the foreground is combined with the background.
+            ---                          Alternately, this argument can be an image map, as described below.
+            ---```Lua
+            ---Example:
+            ---    newImg = imgBg:BlendOf(imgFg, imgMap) -- using an image as a map
+            ---    newImg = imgBg:BlendOf(imgFg, 30)  -- 30% of fg will be use
+            ---```
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9079.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/BlendOf)
-            function Image:BlendOf() end
-            ---Softens an image
+            function Image:BlendOf(fg, map) end
+
+            ---Blurs the image
+            ---@param destImage Image @**optional** The image object where the results of the blur will be applied.
+            ---@param attr table @**required** A table containing values which describe the various options available for the blur
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur)
-            function Image:Blur() end
+            function Image:Blur(destImage, attr) end
+
             ---Applies various math and boolean operations
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index0d66.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/ChannelOpOf)
             function Image:ChannelOpOf() end
+
             ---Create a copy of the image
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexd7a8.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/CopyOf)
             function Image:CopyOf() end
+
             ---Crops or offset an image
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index0440.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Crop)
             function Image:Crop() end
+
             ---Converts between RGB,HLS,YUV and others
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4857.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/CSConvert)
             function Image:CSConvert() end
+
             ---A min/max operation used to contract or expand the contents of an image [Fusion 7]
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index5de3-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/ErodeDilate)
             function Image:ErodeDilate() end
+
             ---Sets all pixels to a single colour
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index2511.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Fill)
             function Image:Fill() end
+
             ---Applies a power operation to all pixels
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfe61.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Gamma)
             function Image:Gamma() end
+
             ---Multiplies all pixels by a given value
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexb745.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Gain)
             function Image:Gain() end
+
             ---Reads the color of the image's canvas area
             ---@param pixel Pixel
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexe53a.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/GetCanvasColor)
             function Image:GetCanvasColor(pixel) end
+
             ---Reads the value of a single pixel
             ---@param x_position integer @ The position of the pixel to get on the x axis
             ---@param y_position integer @ The postion of the pixel to get on the y axis
             ---@param pixel Pixel @ The Pixel object that will receive the color values of the image's pixel
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index8499.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/GetPixel)
             function Image:GetPixel(x_position, y_position, pixel) end
+
             ---Construct a new Image object
             ---@param attr table @ Image attributes which describe teh images width, heigh, color depth and so forth
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexe339-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Constructor)
             function Image:Image(attr) end
+
             ---Overlays a foreground on the background image
             ---@param fg Image @ The image to be used as the foreground of the merge
             ---@param attr table @ A table containing entries which describe how the foreground will be merged over the background
@@ -463,8 +490,6 @@ function Object:GetAttr() end
 
             ---Returns the number of bytes or 0 if the channel is not present.
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
-            ---@alias channel 
-            ---|>'<channel>' # 
             function Image:GetChanSize(channel) end
         --/////////////////////////
         -- END Image Class 
@@ -581,19 +606,13 @@ function Object:GetAttr() end
 --//////////////////
 
 
----@alias classType 
----|>'CT_Tool' # 
----| 'CT_ParticleTool' # 
----| 'CT_SourceTool' # 
----| 'CT_Modifier'  # 
----| 'CT_ViewLUTPlugin' # 
 ---
 ---The AddInput function is typically found within the Create event function of a Fuse. It is used to add inputs (controls) to the tool. An input can be one of several control types, or an image type input which appears on the tool tile in the flow.
 ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexcab7.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass)
 ---@param name string
 ---@param class classType 
----@param attributes table 
-function FuRegisterClass(name, class, attributes)end
+---@param attr table 
+function FuRegisterClass(name, class, attr)end
 
 ---@type ScriptOperator
 self = {} 

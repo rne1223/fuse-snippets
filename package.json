@@ -27,6 +27,7 @@
 		"fuse snippets"
 	],
 	"activationEvents": [
+		"onStartupFinished",
 		"onLanguage:fuse",
 		"onCommand:fuse-snippets.CreateVars"
 	],

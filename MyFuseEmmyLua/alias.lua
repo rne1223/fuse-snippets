@@ -9,12 +9,12 @@
 ---|>'<channel>' # 
 
 --- Alias used for Tools in FuRegisterClass
----@alias classType
----|>' CT_Tool' # 
----| ' CT_ParticleTool' # 
----| ' CT_SourceTool' # 
----| ' CT_Modifier'  # 
----| ' CT_ViewLUTPlugin' # 
+---@alias toolType 
+---|>' CT_Tool' 
+---| ' CT_ParticleTool'
+---| ' CT_SourceTool'
+---| ' CT_Modifier'
+---| ' CT_ViewLUTPlugin'
 
 ---@alias inputControls 
 ---|>' "ButtonControl"'
@@ -62,12 +62,25 @@
 ---| ' "SetData"'	
 ---| ' "InterpolateWith"'
 
----@alias blurType 
----|>' "Box"' # 
----| ' "Soften"'
----| ' "Bartlett"'
----| ' "Sharpen"'
----| ' "Gaussian"'
----| ' "Hilight"'
----| ' "Blend"'
----| ' "Solarise"'
+---@alias ChannelOpOfOperation
+---|>' "Copy"'
+---|' "Add"'
+---|' "Subtract"'
+---|' "Multiply"'
+---|' "Divide"'
+---|' "Max"'
+---|' "Min"'
+---|' "Invert"'
+---|' "Difference"'
+---|' "SignedAdd"'
+---|' "Threshold"'
+
+---@alias ColorSpace
+---| ' "RGB"'
+---| ' "HLS"'
+---| ' "YUV"'
+---| ' "YIQ"'
+---| ' "CMY"'
+---| ' "HSV"'
+---| ' "XYZ"'
+---| ' "LAB"'

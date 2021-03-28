@@ -9,8 +9,13 @@ All notable changes to the "fuse-snippets" extension will be documented in this 
 - Add command to create the installer
 - Intellisense for FuScript
 - fuzzy search docs
+- Intellisense for function attributes
 
-## [0.1.2]
+## [0.2.1]
+
+### Added 
+- Documetation and intellisense for Image class
+## [0.2.0]
 
 ### Fix
 

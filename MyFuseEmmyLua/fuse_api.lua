@@ -216,22 +216,22 @@ function Object:GetAttr() end
             ---@field Metadata any
             ---Contains the actual size of the pixel area that may be accessed. Writing outside of its bounds may crash Fusion.
             ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
-            ---@field DataWindow any
+            ---@field DataWindow integer
             ---Specifies the area for which the image is valid (usually the Region of interest. If a new request that is just a subarea of the old one is performed, no re-rendering will take place. You can test this in the viewport yourself).
             ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
             ---@field ValidWindow any
             ---The color depth of the image. The return value is an index from the IMG_Depth attribute in Attributes.
             ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
-            ---@field Depth number	
+            ---@field Depth integer 
             ---The current width and height of the image in pixels. If the image is in Proxy, this is the actual width and height
             ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
-            ---@field Width number 
+            ---@field Width integer 
             ---The current width and height of the image in pixels. If the image is in Proxy, this is the actual width and height
             ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
-            ---@field Height number 
+            ---@field Heigh integer 
             ---The width and height of the image in pixels. This is always the original width and height, regardless of the current proxy settings.
             ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
-            ---@field OriginalWidth number 
+            ---@field OriginalWidth integer 
             ---The width and height of the image in pixels. This is always the original width and height, regardless of the current proxy settings.
             ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
             ---@field OriginalHeight integer
@@ -240,25 +240,25 @@ function Object:GetAttr() end
             ---@field XScale number 
             ---The current X and Y pixel aspect of the image.
             ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
-            ---@field YScale number
+            ---@field YScale number 
             ---The original X and Y pixel aspect of the image, regardless of current proxy settings.
             ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
-            ---@field OriginalXScale number
+            ---@field OriginalXScale number 
             ---The original X and Y pixel aspect of the image, regardless of current proxy settings.
             ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
-            ---@field OriginalYScale number
+            ---@field OriginalYScale number 
             ---No documents at the moment 
             ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
             ---@field XOffset number 
             ---No documents at the moment 
             ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
-            ---@field YOffset number
+            ---@field YOffset number 
             ---No documents at the moment 
             ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
-            ---@field Field	number
+            ---@field Field number	
             ---The current proxy scaling of the image.
             ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
-            ---@field ProxyScale number
+            ---@field ProxyScale number 
             local Image = {} 
 
             ---Destructively applies a matrix of color operations
@@ -270,66 +270,88 @@ function Object:GetAttr() end
             function Image:ApplyMatrixOf() end
 
             ---Fades and dissolves between images
-            ---@param fg Image @ **required** The image to use as the foreground for the blend operation
-            ---@param map Image | integer @ **required** A numeric value that describes how much of the foreground is combined with the background.
-            ---                          Alternately, this argument can be an image map, as described below.
-            ---```Lua
-            ---Example:
-            ---    newImg = imgBg:BlendOf(imgFg, imgMap) -- using an image as a map
-            ---    newImg = imgBg:BlendOf(imgFg, 30)  -- 30% of fg will be use
-            ---```
+            ---@param fg Image @ The image to use as the foreground for the blend operation
+            ---@param map Image | number @ A numeric value that describes how much of the foreground is combined with the background. Alternately, this argument can be an image map, as described below.
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9079.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/BlendOf)
+            ---@return Image
             function Image:BlendOf(fg, map) end
 
-            ---Blurs the image
-            ---@param destImage Image @**optional** The image object where the results of the blur will be applied.
-            ---@param attr table @**required** A table containing values which describe the various options available for the blur
+            ---Blurs the image. Returns an image if destImage is not passed
+            ---@param destImage? Image @ The image object where the results of the blur will be applied. If none is provided, a new image will be created.
+            ---@param settings BlurSettings @ A table containing values which describe the various options available for the blur
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur)
-            function Image:Blur(destImage, attr) end
+            ---@return Image
+            function Image:Blur(destImage, settings) end
 
-            ---Applies various math and boolean operations
+            ---Applies various math and boolean operations to one or more images.
+            ---@param operation ChannelOpOfOperation @ A string that specifies the mathematical operation the function will use when combining channels
+            ---@param fgImg Image @ The image object used as the foreground, or second image in the operation. If this is nil, then the function will use the Image object calling the function as the foreground as well (i.e. "fg.r" is equivalent to "bg.r")
+            ---@param options ChannelOpOfOptions @ A table containing named entries describing how each channel of the background image should be processed to produce the result.
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index0d66.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/ChannelOpOf)
-            function Image:ChannelOpOf() end
+            ---@return Image
+            function Image:ChannelOpOf(operation, fgImg, options) end
 
             ---Create a copy of the image
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexd7a8.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/CopyOf)
+            ---@return Image
             function Image:CopyOf() end
 
             ---Crops or offset an image
+            ---@param img Image | nil @ This argument can be set to either **nil** or an Image object.
+            ---@param options CropOptions @ A table containing the options for the crop 
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index0440.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Crop)
-            function Image:Crop() end
+            ---@return Image
+            function Image:Crop(img, options) end
 
-            ---Converts between RGB,HLS,YUV and others
+            ---Converts an image to the specified color space 
+            ---@param fromCS ColorSpace @ A string specifying the colorspace the image is currently in.
+            ---@param toCS ColorSpace @ A string specifying the colorspace to convert the image into.
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4857.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/CSConvert)
-            function Image:CSConvert() end
+            ---@return nil
+            function Image:CSConvert(fromCS, toCS) end
 
-            ---A min/max operation used to contract or expand the contents of an image [Fusion 7]
+            --- The ErodeDilate function will apply an erode or dilate process to the image. The function returns a new image containing the results of the operation.
+            ---@param destImage Image @ The image object where the results of the erode/dilate will be applied. If none is provided, a new image will be created.
+            ---@param options ErodeDilateOptions @ A table containing values which describe the various options available for the erode/dilate
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index5de3-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/ErodeDilate)
-            function Image:ErodeDilate() end
+            ---@return Image
+            function Image:ErodeDilate(destImage, options) end
 
-            ---Sets all pixels to a single colour
+            ---Sets all pixels to a single color
+            ---@param pixel Pixel @ Color pixel to fill the image with.
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index2511.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Fill)
-            function Image:Fill() end
+            ---@return nil
+            function Image:Fill(pixel) end
 
-            ---Applies a power operation to all pixels
+            ---Applies a power operation (Gamma) to all pixels
+            ---@param rAmount number @ The amount of gamma to the Red channel
+            ---@param gAmount number @ The amount of gamma to the Green channel 
+            ---@param bAmount number @ The amount of gamma to the Blue channel
+            ---@param aAmount number @ The amount of gamma to the Alpha channel
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfe61.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Gamma)
-            function Image:Gamma() end
+            ---@return nil
+            function Image:Gamma(rAmount, gAmount, bAmount, aAmount) end
 
-            ---Multiplies all pixels by a given value
+            ---Multiplies all pixels by a given value (Gain)
+            ---@param rAmount number @ The amount of gain to the Red channel
+            ---@param gAmount number @ The amount of gain to the Green channel
+            ---@param bAmount number @ The amount of gain to the Blue channel
+            ---@param aAmount number @ The amount of gain to the Alpha channel
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexb745.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Gain)
-            function Image:Gain() end
+            ---@return nil
+            function Image:Gain(rAmount, gAmount, bAmount, aAmount) end
 
             ---Reads the color of the image's canvas area
-            ---@param pixel Pixel
+            ---@param pixel Pixel @ The Pixel object that will receive the color values of the image's canvas.
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexe53a.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/GetCanvasColor)
             function Image:GetCanvasColor(pixel) end
 
             ---Reads the value of a single pixel
-            ---@param x_position integer @ The position of the pixel to get on the x axis
-            ---@param y_position integer @ The postion of the pixel to get on the y axis
+            ---@param xPos integer @ The position of the pixel to get on the x axis
+            ---@param yPos integer @ The postion of the pixel to get on the y axis
             ---@param pixel Pixel @ The Pixel object that will receive the color values of the image's pixel
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index8499.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/GetPixel)
-            function Image:GetPixel(x_position, y_position, pixel) end
+            function Image:GetPixel(xPos, yPos, pixel) end
 
             ---Construct a new Image object
             ---@param attr table @ Image attributes which describe teh images width, heigh, color depth and so forth
@@ -491,6 +513,10 @@ function Object:GetAttr() end
             ---Returns the number of bytes or 0 if the channel is not present.
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Image:GetChanSize(channel) end
+
+            function Image:AlphaDivide() end
+
+            function Image:AlpahMultiply() end
         --/////////////////////////
         -- END Image Class 
         --/////////////////////////
@@ -599,6 +625,42 @@ function Object:GetAttr() end
     -- End of Request class
     --//////////////////////
 
+    ---@class PixelChannels
+    ---@field test '"hello"'|'"world"'
+    ---@field R	number            @ Red channel
+    ---@field G	number            @ Green channel
+    ---@field B	number            @ Blue channel
+    ---@field A	number            @ Alpha channel
+    ---@field Z	number            @ Depth channel
+    ---@field U	number            @ U texture co-ordinate channel
+    ---@field V	number            @ V texture co-ordinate channel
+    ---@field Coverage	number    @ Fraction of pixel covered by foreground object channel
+    ---@field ObjectID	number    @ Unique integer identifier for the pixel's object channel
+    ---@field MaterialID number   @ Unique integer identifier for the pixel's material channel
+    ---@field NX number	          @ X component of pixel's surface normal vector channel
+    ---@field NY number	          @ Y component of pixel's surface normal vector channel
+    ---@field NZ number 	      @ Z component of pixel's surface normal vector channel
+    ---@field BgR number	      @ Red component of background pixel fragment channel
+    ---@field BgG number	      @ Green component of background pixel fragment channel
+    ---@field BgB number	      @ Blue component of background pixel fragment channel
+    ---@field BgA number		  @ Alpha component of background pixel fragment channel
+    ---@field VectX number		  @ X component of pixel's motion vector channel
+    ---@field VectY number		  @ Y component of pixel's motion vector channel
+    ---@field BackVectX number	  @ X component of pixel's reverse motion vector channel
+    ---@field BackVectY	 number   @ Y component of pixel's reverse motion vector channel
+    ---@field PositionX number    @
+    ---@field PositonY number     @
+    ---@field PositonZ number     @
+    ---@field DisparityX number   @
+    ---@field DisparityY number   @
+    local Pixels = {}
+    --- Zeroes all pixel values to black
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    function Pixels:Clear() end
+
+    ---@param options? PixelChannels @ Options use when creating constructing a Pixel
+    ---@return PixelChannels
+     function Pixel(options) end 
 
 
 --//////////////////
@@ -610,9 +672,10 @@ function Object:GetAttr() end
 ---The AddInput function is typically found within the Create event function of a Fuse. It is used to add inputs (controls) to the tool. An input can be one of several control types, or an image type input which appears on the tool tile in the flow.
 ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexcab7.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass)
 ---@param name string
----@param class classType 
+---@param class toolType 
 ---@param attr table 
-function FuRegisterClass(name, class, attr)end
+function FuRegisterClass(name, class , attr)end
 
----@type ScriptOperator
+
+---@type ScriptOperator | Pixel
 self = {} 

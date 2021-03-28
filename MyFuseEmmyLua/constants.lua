@@ -1,37 +1,36 @@
----
 --- Width of the screen
---- 
 ---@type number
 Width = ""
----
+
 --- Height of the screen
---- 
 ---@type number
 Height = ""
 
----
---- �� 
---- 
 ---@type number
 XAspect =""
----
---- �� 
---- 
+
 ---@type number
 YAspect = ""
----
---- �� 
---- 
+
 ---@type number
 SourceDepth = ""
 
----@type classType
+---The ClassType is a predefined variable which identifies the type of Fuse for Fusion.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexcab7.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass#ClassType_.28enum.2C_required.29)
 CT_Tool = ""
----@type classType
+
+---The ClassType is a predefined variable which identifies the type of Fuse for Fusion.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexcab7.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass#ClassType_.28enum.2C_required.29)
 CT_ParticleTool = ""
----@type classType
+
+---The ClassType is a predefined variable which identifies the type of Fuse for Fusion.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexcab7.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass#ClassType_.28enum.2C_required.29)
 CT_SourceTool = ""
----@type classType
+
+---The ClassType is a predefined variable which identifies the type of Fuse for Fusion.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexcab7.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass#ClassType_.28enum.2C_required.29)
 CT_Modifier = ""
----@type classType
+
+---The ClassType is a predefined variable which identifies the type of Fuse for Fusion.\
+---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexcab7.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass#ClassType_.28enum.2C_required.29)
 CT_ViewLUTPlugin = ""

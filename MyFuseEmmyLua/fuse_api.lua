@@ -320,7 +320,6 @@ function Object:GetAttr() end
             ---Sets all pixels to a single color
             ---@param pixel Pix @ Color pixel to fill the image with.
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index2511.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Img/Fill)
-            ---@return nil
             function Img:Fill(pixel) end
 
             ---Applies a power operation (Gamma) to all pixels
@@ -329,7 +328,6 @@ function Object:GetAttr() end
             ---@param bAmount number @ The amount of gamma to the Blue channel
             ---@param aAmount number @ The amount of gamma to the Alpha channel
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfe61.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Img/Gamma)
-            ---@return nil
             function Img:Gamma(rAmount, gAmount, bAmount, aAmount) end
 
             ---Multiplies all pixels by a given value (Gain)
@@ -338,7 +336,6 @@ function Object:GetAttr() end
             ---@param bAmount number @ The amount of gain to the Blue channel
             ---@param aAmount number @ The amount of gain to the Alpha channel
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexb745.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Img/Gain)
-            ---@return nil
             function Img:Gain(rAmount, gAmount, bAmount, aAmount) end
 
             ---Reads the color of the image's canvas area
@@ -353,18 +350,11 @@ function Object:GetAttr() end
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index8499.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Img/GetPixel)
             function Img:GetPixel(xPos, yPos, pixel) end
 
-            ---Construct a new Img object
-            ---@param attr table @ Img attributes which describe teh images width, heigh, color depth and so forth
-            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexe339-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Img/Constructor)
-            ---@return Img
-            function Img:Img(attr) end
-
-            function Img() end
-            ---Overlays a foreground on the background image
+            ---Merges a foreground image to the background image
             ---@param fg Img @ The image to be used as the foreground of the merge
-            ---@param attr table @ A table containing entries which describe how the foreground will be merged over the background
+            ---@param options table @ A table containing entries which describe how the foreground will be merged over the background
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Img/Merge)
-            function Img:Merge(fg, attr) end
+            function Img:Merge(fg, options) end
 
             ---Overlays a foreground and background to a new image
             ---@param fg Img @ The image to be used as the foreground of the merge
@@ -443,11 +433,7 @@ function Object:GetAttr() end
             ---Fetch pixel with bilinear filtering, returns duplicate edges
             ---@param x integer The x coordinate of the pixel to be sampled, where 0 is the left edge
             ---@param y integer The u coordinate of the pixel to be sampled, where 0 is the bottom edge
-            ---@param pixel Pixel A Pixel object that will be filled with the results
-            ---```lua
-            --- Example:
-            ---     img:SamplePixelD(10, 10, Pixel({R = 0.1, G = 0.2, B = 0.3, A = 1}))
-            ---```
+            ---@param pixel Pix A Pixel object that will be filled with the results
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexbc63.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Img/SamplePixelD)
             function Img:SamplePixelD(x, y, pixel) end
 
@@ -519,6 +505,15 @@ function Object:GetAttr() end
             function Img:AlphaDivide() end
 
             function Img:AlpahMultiply() end
+
+            ---Construct function for a new Img object
+            ---@param options ImageOptions @ Img attributes which describe the images width, heigh, color depth and so forth
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexe339-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Img/Constructor)
+            ---@return Img
+            function Image(options) end
+
+
+
         --/////////////////////////
         -- END Image Class 
         --/////////////////////////
@@ -631,38 +626,14 @@ function Object:GetAttr() end
     --//////////////////////
     -- Pixel() 
     --//////////////////////
-    ---@class Pix
-    ---@field R	number            @ Red channel
-    ---@field G	number            @ Green channel
-    ---@field B	number            @ Blue channel
-    ---@field A	number            @ Alpha channel
-    ---@field Z	number            @ Depth channel
-    ---@field U	number            @ U texture co-ordinate channel
-    ---@field V	number            @ V texture co-ordinate channel
-    ---@field Coverage	number    @ Fraction of pixel covered by foreground object channel
-    ---@field ObjectID	number    @ Unique integer identifier for the pixel's object channel
-    ---@field MaterialID number   @ Unique integer identifier for the pixel's material channel
-    ---@field NX number	          @ X component of pixel's surface normal vector channel
-    ---@field NY number	          @ Y component of pixel's surface normal vector channel
-    ---@field NZ number 	      @ Z component of pixel's surface normal vector channel
-    ---@field BgR number	      @ Red component of background pixel fragment channel
-    ---@field BgG number	      @ Green component of background pixel fragment channel
-    ---@field BgB number	      @ Blue component of background pixel fragment channel
-    ---@field BgA number		  @ Alpha component of background pixel fragment channel
-    ---@field VectX number		  @ X component of pixel's motion vector channel
-    ---@field VectY number		  @ Y component of pixel's motion vector channel
-    ---@field BackVectX number	  @ X component of pixel's reverse motion vector channel
-    ---@field BackVectY	 number   @ Y component of pixel's reverse motion vector channel
-    ---@field PositionX number    @
-    ---@field PositonY number     @
-    ---@field PositonZ number     @
-    ---@field DisparityX number   @
-    ---@field DisparityY number   @
+    ---@class Pix : Channels
     local Pix = {}
     --- Zeroes all pixel values to black
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
     function Pix:Clear() end
 
+
+    ---Contructor function for a Pixel object 
     ---@return Pix
     ---@param options? Pix
     function Pixel(options) end

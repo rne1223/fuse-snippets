@@ -55,6 +55,32 @@ export function activate(context: vscode.ExtensionContext) {
         
     });
 
+    // const provider2 = vscode.languages.registerCompletionItemProvider(
+	// 	'lua',
+	// 	{
+	// 		provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
+
+    //             console.log("{ Completion");
+                
+	// 			// get all text until the `position` and check if it reads `console.`
+	// 			// and if so then complete if `log`, `warn`, and `error`
+	// 			const linePrefix = document.lineAt(position).text.substr(0, position.character);
+	// 			if (!linePrefix.endsWith('console.')) {
+	// 				return undefined;
+	// 			}
+
+	// 			return [
+	// 				new vscode.CompletionItem('log', vscode.CompletionItemKind.Enum),
+	// 				new vscode.CompletionItem('warn', vscode.CompletionItemKind.Method),
+	// 				new vscode.CompletionItem('error', vscode.CompletionItemKind.Method),
+	// 			];
+	// 		}
+	// 	},
+	// 	'{' // triggered whenever a '{' is being typed
+	// );
+
+
+	// context.subscriptions.push(disposable, provider2);
 	context.subscriptions.push(disposable);
 }
 

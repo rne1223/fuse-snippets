@@ -169,67 +169,39 @@
 --///////////////////
 
 --///////////////////
--- Image Attributes 
+-- Image Attributes / Options
 --/////////////////// 
 
     -- Image Attributes https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes
 
-    --[[   IMG_Like	Set the IMG_Like attribute to an already existing image to copy that images attributes to the new image.
-        IMG_CopyChannels	Set this to false to create an Image with different channels than the IMG_Like Image. Use IMG_Channel to then specify the channels the new Image should contain. If no channels are specified, a 4 channel (RGBA) Image will be created.
-        IMG_Width	Set the IMG_Width attribute to an integer value representing the actual width of the image in pixels.
-        IMG_Height	Set the IMG_Height attribute to an integer value representing the actual height of the image in pixels.
-        IMG_XScale	Set the IMG_XScale to an numeric value representing the X aspect of the image. For an NTSC D1 format image the value would be 0.9, for example.
-        IMG_YScale	Set the IMG_YScale to an numeric value representing the Y aspect of the image. For an NTSC D1 format image the value would be 1.0, for example.
-        IMAT_OriginalWidth	Set the IMAT_OriginalWidth to the original width of the image in pixels. When a composition is in Proxy mode, it is possible that IMG_Width and IMG_Height will differ from the IMAT_OriginalWidth and IMAT_OriginalHeight values.
-        IMAT_OriginalHeight	Set the IMAT_OriginalHeight to the original height of the image in pixels. When a composition is in Proxy mode, it is possible that IMG_Width and IMG_Height will differ from the IMAT_OriginalWidth and IMAT_OriginalHeight values.
-        IMG_Depth	Set the IMG_Depth attribute to match the image depth desired for the image. This will be an integer value, using the following table :
-        1 - Single channel image, 8 integer bits per channel.
-        2 - Single channel image, 16 integer bits per channel.
-        3 - Single channel image, 16 float bits per channel.
-        4 - Single channel image, 32 float bits per channel.
-        5 - Four channel image, 8 integer bits per channel.
-        6 - Four channel image, 16 integer bits per channel.
-        7 - Four channel image, 16 float bits per channel.
-        8 - Four channel image, 32 float bits per channel.
-        IMG_Quality	The IMG_Quality attribute is a bool value which specifies whether the image is High Quality (true) or Interactive Quality (false). The IMG_Quality will be true duringa final render, or if the HiQ button in the Time Ruler of the composition is selected. It is usually set by calling the Request:IsQuick function.
-        IMG_ProxyScale	The IMG_ProxyScale is an integer value representing the current Proxy scale of the image. For example if the current proxy is 2/1, then this should be set to 2.
-        IMG_MotionBlurQuality	The IMG_MotionBlurQuality attribute is a bool value which specifies whether Motion Blur is currently enabled for this image. It is usually set by calling the Request:IsNoMotionBlur function.
-        IMG_Channel	Specify the channels which should be included in the image using the IMG_Channel table values. This is different from all the ones table values above. It should be specified as shown in the following example,
-        local imgattrs = {
-            IMG_Document = self.Comp,
-            { IMG_Channel = "Red", },
-            { IMG_Channel = "Green", },
-            { IMG_Channel = "Blue", },
-            { IMG_Channel = "Alpha", },
-            IMG_Width = 720,
-            IMG_Height = 486,
-            IMG_XScale = 0.9,
-            IMG_YScale = 1.0,
-            IMG_Quality = not req:IsQuick(),
-            IMG_MotionBlurQuality = not req:IsNoMotionBlur(),
-            }
-        Valid channel names include :
-
-        "Red"
-        "Green"
-        "Blue"
-        "Alpha"
-        "BgRed"
-        "BgGreen"
-        "BgBlue"
-        "BgAlpha"
-        "Z"
-        "U"
-        "V"
-        "Coverage"
-        "Object"
-        "Material"
-        "NormalX"
-        "NormalY"
-        "NormalZ"
-        "VectorX"
-        "VectorY" 
-    --]]
+    ---@class ImageOptions
+    ---@field IMG_Like any	@Set the IMG_Like attribute to an already existing image to copy that images attributes to the new image.
+    ---@field IMG_CopyChannels boolean 	@Set this to false to create an Image with different channels than the IMG_Like Image. Use IMG_Channel to then specify the channels the new Image should contain. If no channels are specified, a 4 channel (RGBA) Image will be created.
+    ---@field IMG_Width integer 	@Set the IMG_Width attribute to an integer value representing the actual width of the image in pixels.
+    ---@field IMG_Height integer 	@Set the IMG_Height attribute to an integer value representing the actual height of the image in pixels.
+    ---@field IMG_XScale number 	@Set the IMG_XScale to an numeric value representing the X aspect of the image. For an NTSC D1 format image the value would be 0.9, for example.
+    ---@field IMG_YScale number	    @Set the IMG_YScale to an numeric value representing the Y aspect of the image. For an NTSC D1 format image the value would be 1.0, for example.
+    ---@field IMAT_OriginalWidth integer	@Set the IMAT_OriginalWidth to the original width of the image in pixels. When a composition is in Proxy mode, it is possible that IMG_Width and IMG_Height will differ from the IMAT_OriginalWidth and IMAT_OriginalHeight values.
+    ---@field IMAT_OriginalHeight integer 	@Set the IMAT_OriginalHeight to the original height of the image in pixels. When a composition is in Proxy mode, it is possible that IMG_Width and IMG_Height will differ from the IMAT_OriginalWidth and IMAT_OriginalHeight values.
+    ---Set the IMG_Depth attribute to match the image depth desired for the image. This will be an integer value, using the following table :\
+    --- 1 - Single channel image, 8 integer bits per channel.\
+    --- 2 - Single channel image, 16 integer bits per channel.\
+    --- 3 - Single channel image, 16 float bits per channel.\
+    --- 4 - Single channel image, 32 float bits per channel.\
+    --- 5 - Four channel image, 8 integer bits per channel.\
+    --- 6 - Four channel image, 16 integer bits per channel.\
+    --- 7 - Four channel image, 16 float bits per channel.\
+    --- 8 - Four channel image, 32 float bits per channel.\
+    ---@field IMG_Depth "1"| "2" | "3" | "4"| "5" | "6" | "7"| "8"
+    ---@field IMG_Quality boolean	@The IMG_Quality attribute is a bool value which specifies whether the image is High Quality (true) or Interactive Quality (false). The IMG_Quality will be true duringa final render, or if the HiQ button in the Time Ruler of the composition is selected. It is usually set by calling the Request:IsQuick function.
+    ---@field IMG_ProxyScale integer	@The IMG_ProxyScale is an integer value representing the current Proxy scale of the image. For example if the current proxy is 2/1, then this should be set to 2.
+    ---@field IMG_MotionBlurQuality boolean 	@The IMG_MotionBlurQuality attribute is a bool value which specifies whether Motion Blur is currently enabled for this image. It is usually set by calling the Request:IsNoMotionBlur function.
+    ---@field IMG_Channel Channels @Specify the channels which should be included in the image using the IMG_Channel table values. This is different from all the ones table values above. It should be specified as shown in the following example,
+    ---@field IMG_Document "Comp"
+    ---@field IMG_CopyChannelsAux boolean  @ If set to false in, allows you to use IMG_Like but discard the aux channel configuration.
+    ---@field IMG_DataWindow number
+    ---@field IMG_ValidWindow number
+    ---@field IMG_NoData boolean
 
 --///////////////////
 -- End Image Attributes 
@@ -290,18 +262,17 @@
 ---///////////////////////////
 
     ---@class ChannelOpOfOptions
-    --- Red Channel
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index0d66.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/ChannelOpOf#Options_Table)
-    ---@field R "Fg.channel" | "Bg.channel"
-    --- Green Channel
+    ---@field R ChannelOpOfChannels  @ Red Channel
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index0d66.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/ChannelOpOf#Options_Table)
-    ---@field G "Fg.channel" | "Bg.channel"
+    ---@field G ChannelOpOfChannels  @ Green Channel
     --- Blue Channel
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index0d66.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/ChannelOpOf#Options_Table)
-    ---@field B "Fg.channel" | "Bg.channel"
+    ---@field B  ChannelOpOfChannels @ Blue Channel
     --- Alpha Channel
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index0d66.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/ChannelOpOf#Options_Table)
-    ---@field A "Fg.channel" | "Bg.channel"
+    ---@field A ChannelOpOfChannels @ Alpha Channel
+
 
 ---///////////////////////////
 --- End ChannelOpOfOf () Options 
@@ -336,3 +307,39 @@
 ---///////////////////////////
 --- End ErodeDilate() Options 
 ---///////////////////////////
+
+---///////////////////////////////////////////////////////
+---////// Channels Class to be derived in in Pix and Img
+---///////////////////////////////////////////////////////////
+
+    ---@class Channels
+    ---@field R	number            @ Red channel
+    ---@field G	number            @ Green channel
+    ---@field B	number            @ Blue channel
+    ---@field A	number            @ Alpha channel
+    ---@field Z	number            @ Depth channel
+    ---@field U	number            @ U texture co-ordinate channel
+    ---@field V	number            @ V texture co-ordinate channel
+    ---@field Coverage	number    @ Fraction of pixel covered by foreground object channel
+    ---@field ObjectID	number    @ Unique integer identifier for the pixel's object channel
+    ---@field MaterialID number   @ Unique integer identifier for the pixel's material channel
+    ---@field NX number	          @ X component of pixel's surface normal vector channel
+    ---@field NY number	          @ Y component of pixel's surface normal vector channel
+    ---@field NZ number 	      @ Z component of pixel's surface normal vector channel
+    ---@field BgR number	      @ Red component of background pixel fragment channel
+    ---@field BgG number	      @ Green component of background pixel fragment channel
+    ---@field BgB number	      @ Blue component of background pixel fragment channel
+    ---@field BgA number		  @ Alpha component of background pixel fragment channel
+    ---@field VectX number		  @ X component of pixel's motion vector channel
+    ---@field VectY number		  @ Y component of pixel's motion vector channel
+    ---@field BackVectX number	  @ X component of pixel's reverse motion vector channel
+    ---@field BackVectY	 number   @ Y component of pixel's reverse motion vector channel
+    ---@field PositionX number    @
+    ---@field PositonY number     @
+    ---@field PositonZ number     @
+    ---@field DisparityX number   @
+    ---@field DisparityY number   @
+
+---///////////////////////////////////////////////////////
+---////// End of Channels
+---///////////////////////////////////////////////////////////

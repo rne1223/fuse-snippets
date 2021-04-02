@@ -343,3 +343,106 @@
 ---///////////////////////////////////////////////////////
 ---////// End of Channels
 ---///////////////////////////////////////////////////////////
+
+---///////////////////////////////
+---////// Merge() Options 
+---///////////////////////////////
+
+    ---@class MergeOptions
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_EdgeMode "Black" | "Wrap" | "Duplicate"  
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_ApplyMode "Merge"|"Screen"|"Dissolve"|"Multiply"|"Overlay"|"SoftLight"|"HardLight"|"ColorDodge"|"ColorBurn"|"Darken"|"Lighten"|"Difference"|"Exclusion"|"Hue"|"Saturation"|"Color"|"Luminosity"
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_ApplyOperator "Over"|"In"|"HeldOut"|"Atop"|"XOr"
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_DoZ string
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_UseOpenGL string
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_MustDoCopy string
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_BBoxOnly string
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_FgZOffset string
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_BgZOffset string
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_XOffset string
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_YOffset string
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_XAxis string
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_YAxis string
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_XSize string
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_YSize string
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_Angle string
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_FgAddSub string
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_BgAddSub string
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_BurnIn string
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_FgRedGain string
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_FgGreenGain string
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_FgBlueGain string
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_FgAlphaGain string
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
+    ---@field MO_BgAlphaGain string
+
+---///////////////////////////////
+---////// End Merge() Options 
+---///////////////////////////////
+
+---///////////////////////////////
+---////// Resize() Options 
+---///////////////////////////////
+
+    ---@class ResizeOptions
+    ---A string describing which filter method should be used for the resize.
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index5008.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Resize#Options)
+    ---@field RSZ_Filter "TopLeft" | "Nearest" | "Box" | "Linear" | "BiLinear" | "Quadratic" | "BiCubic" | "Cubic" | "BSpline" | "CatmulRom" | "Gaussian" | "Mitchell" | "Lanczos" | "Sinc" | "Bess"
+    ---A string that specifies the Windowing method to use with Lanczos and Sinc filter methods. Not required for other filter types.
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index5008.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Resize#Options)
+    ---@field RSZ_Window "Hanning" | "Hamming" | "Blackman" | "Kaiser"
+    ---An integer specifying the width of the result image in pixels
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index5008.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Resize#Options)
+    ---@field RSZ_Width integer
+    ---An integer specifying the height of the result image in pixels
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index5008.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Resize#Options)
+    ---@field RSZ_Height integer
+    ---An integer specifying the color depth of the result image, Usually left nil.
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index5008.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Resize#Options)
+    ---@field RSZ_Depth integer
+    ---A numeric value representing the horizontal scale of the result image. Provides an alternate to RSZ_Width. A value of 1.0 represents 100%, or no change.
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index5008.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Resize#Options)
+    ---@field RSZ_XSize number
+    ---A numeric value representing the vertical scale of the result image. Provides an alternate to RSZ_Height. A value of 1.0 represents 100%, or no change.
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index5008.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Resize#Options)
+    ---@field RSZ_YSize number
+
+
+---///////////////////////////////
+---////// End Resize() Options 
+---///////////////////////////////
+
+---/////////////////////////////
+---//////Transform() Options
+---/////////////////////////////
+    ---@class TranformOptions
+    ---@field XF_Angle  	number      The angle of the transformed image in degrees.
+    ---@field XF_XAxis  	number      The x co-ordinate for the transformations axis (or pivot).
+    ---@field XF_YAxis  	number      The y co-ordinate for the transformations axis (or pivot).
+    ---@field XF_EdgeMode   "Black" | "Wrap" | "Duplicate"   An string which describes which technique to use to handle edges of the image. Valid options are "Black", "Wrap", or "Duplicate". 
+    ---@field XF_XOffset	number      The x co-ordinate for the transformations center.
+    ---@field XF_YOffset	number      The y co-ordinate for the transformations center.
+    ---@field XF_XSize  	number      The scale of the transformed image along the x axis.
+    ---@field XF_YSize  	number      The scale of the transformed image along the y axis.

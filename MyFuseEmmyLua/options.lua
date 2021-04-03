@@ -52,9 +52,9 @@
 
     ---@class InputOptions
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
-    ---@field INPID_InputControl string @The ID of the type of tool window control used by the input.\
+    ---@field INPID_InputControl inputControls The ID of the type of tool window control used by the input.
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
-    ---@field INPID_PreviewControl string @The ID of the type of display view control used by the input.\
+    ---@field INPID_PreviewControl previewControls The ID of the type of display view control used by the input.
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
     ---@field INPID_AddModifier string @A tool of this type ID should be automatically created and connected to this input, at creation time.
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
@@ -95,8 +95,8 @@
     ---@field INP_AcceptsMasks boolean @This input will also accept Mask images.
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
     ---@field INP_AcceptsGLImages boolean @This input will also accept Images with attached OpenGL textures.
-    ---Minimum allowed value - any numbers lower than this value are clipped.
-    ---@field INP_MinAllowed number@More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+    ---@field INP_MinAllowed number@ Minimum allowed value - any numbers lower than this value are clipped.
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
     ---@field INP_MaxAllowed number @Maximum allowed value - any numbers higher than this value are clipped.
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
@@ -104,21 +104,21 @@
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
     ---@field INP_MaxScale number @The highest value that the input's control will normally display.
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
-    ---@field INP_Default string @Inputs of datatype "Number" should default to this value.\
+    ---@field INP_Default string @Inputs of datatype "Number" should default to this value.
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
-    ---@field INP_DefaultX string @Inputs of datatype "Point" should use this as their default X value.\
+    ---@field INP_DefaultX string @Inputs of datatype "Point" should use this as their default X value.
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
-    ---@field INP_DefaultY number @Inputs of datatype "Point" should use this as their default Y value. \
+    ---@field INP_DefaultY number @Inputs of datatype "Point" should use this as their default Y value. 
 
 --//////////////////////////////
 -- End INPUT Attributes
 --//////////////////////////////
 
 --//////////////////////////
---ButtonControl Attributes
+--ButtonControl Options 
 --//////////////////////////
 
-    ---This attribute determines the alignment of the button. Valid values are \
+    ---This attribute determines the alignment of the button. 
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexcfbd.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/ButtonControl#Attributes)
     ---@type alignment
     BTNC_Align = "Center"
@@ -129,78 +129,83 @@
 --/////////////////////////////
 
 --///////////////////
--- LINK attributes 
+-- LINK Options 
 --///////////////////
 
-    ---The full name of this link.\
+    ---@class LinksOptions
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexd1de.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Link/Attributes)
-    ---@type string 
-    LINKS_Name =""
-
-    ---The script ID of this link.\
+    ---@field LINKS_Name string The full name of this link.
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexd1de.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Link/Attributes)
-    ---@type string 
-    LINKID_ID =""
-
-
-    ---The type of Parameter (e.g. Number, Point, Text, Image) this link accepts.\
+    ---@field LINKID_ID string The script ID of this link.
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexd1de.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Link/Attributes)
-    ---@type linkDataType
-    LINKID_DataType = ""
-
-    ---Controls for this input should appear after the input with the specified ID.
+    ---@field LINKID_DataType linkDataType The type of Parameter (e.g. Number, Point, Text, Image) this link accepts.
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexd1de.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Link/Attributes)
-    ---@type string 
-    LINKID_AddAfterID =""
-
-    ---Values of 1 or higher make this input/output visible on the flow view. 1=Background, 2=Foreground, etc.
+    ---@field LINKID_AddAfterID string Controls for this input should appear after the input with the specified ID.
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexd1de.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Link/Attributes)
-    ---@type integer 
-    LINK_Main =""
+    ---@field LINK_Main integer Values of 1 or higher make this input/output visible on the flow view. 1=Background, 2=Foreground, etc.
+    ---This attribute will cause an input to save its value even if it's set to its default. This is most useful for image size sliders that have a dynamic default 
+    ---based on the comp's defaults. They should, of course, keep their values when copied to a comp with different format.
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexd1de.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Link/Attributes)
+    ---@field LINK_ForceSave boolean 
+    ---The input won't get saved to the comp file which means it will receive its default value next time you open the composition. It's useful for hidden inputs 
+    ---that your Fuse might use to store some internal values or for sliders that are only supposed to display calculation results instead of receiving user input.
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexd1de.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Link/Attributes)
+    ---@field LINK_DoNotSave boolean 
 
-
-    --[[LINKS_Name and LINKID_ID are the first two string parameters of self:AddInput(...). This differs from the eyeonscript API, where the input's name and script ID can be retrieved via INPS_Name and INPS_ID respectively.
-    LINK_ForceSave: this attribute will cause an input to save its value even if it's set to its default. This is most useful for image size sliders that have a dynamic default based on the comp's defaults. They should, of course, keep their values when copied to a comp with different format.
-    LINK_DoNotSave: the input won't get saved to the comp file which means it will receive its default value next time you open the composition. It's useful for hidden inputs that your Fuse might use to store some internal values or for sliders that are only supposed to display calculation results instead of receiving user input.
-    --]]
 
 --///////////////////
--- End LINK attributes 
+-- End LINK Options 
 --///////////////////
 
 --///////////////////
--- Image Attributes / Options
+-- Image() Options
 --/////////////////// 
 
-    -- Image Attributes https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes
-
     ---@class ImageOptions
-    ---@field IMG_Like any	@Set the IMG_Like attribute to an already existing image to copy that images attributes to the new image.
-    ---@field IMG_CopyChannels boolean 	@Set this to false to create an Image with different channels than the IMG_Like Image. Use IMG_Channel to then specify the channels the new Image should contain. If no channels are specified, a 4 channel (RGBA) Image will be created.
-    ---@field IMG_Width integer 	@Set the IMG_Width attribute to an integer value representing the actual width of the image in pixels.
-    ---@field IMG_Height integer 	@Set the IMG_Height attribute to an integer value representing the actual height of the image in pixels.
-    ---@field IMG_XScale number 	@Set the IMG_XScale to an numeric value representing the X aspect of the image. For an NTSC D1 format image the value would be 0.9, for example.
-    ---@field IMG_YScale number	    @Set the IMG_YScale to an numeric value representing the Y aspect of the image. For an NTSC D1 format image the value would be 1.0, for example.
-    ---@field IMAT_OriginalWidth integer	@Set the IMAT_OriginalWidth to the original width of the image in pixels. When a composition is in Proxy mode, it is possible that IMG_Width and IMG_Height will differ from the IMAT_OriginalWidth and IMAT_OriginalHeight values.
-    ---@field IMAT_OriginalHeight integer 	@Set the IMAT_OriginalHeight to the original height of the image in pixels. When a composition is in Proxy mode, it is possible that IMG_Width and IMG_Height will differ from the IMAT_OriginalWidth and IMAT_OriginalHeight values.
-    ---Set the IMG_Depth attribute to match the image depth desired for the image. This will be an integer value, using the following table :\
-    --- 1 - Single channel image, 8 integer bits per channel.\
-    --- 2 - Single channel image, 16 integer bits per channel.\
-    --- 3 - Single channel image, 16 float bits per channel.\
-    --- 4 - Single channel image, 32 float bits per channel.\
-    --- 5 - Four channel image, 8 integer bits per channel.\
-    --- 6 - Four channel image, 16 integer bits per channel.\
-    --- 7 - Four channel image, 16 float bits per channel.\
-    --- 8 - Four channel image, 32 float bits per channel.\
-    ---@field IMG_Depth "1"| "2" | "3" | "4"| "5" | "6" | "7"| "8"
-    ---@field IMG_Quality boolean	@The IMG_Quality attribute is a bool value which specifies whether the image is High Quality (true) or Interactive Quality (false). The IMG_Quality will be true duringa final render, or if the HiQ button in the Time Ruler of the composition is selected. It is usually set by calling the Request:IsQuick function.
-    ---@field IMG_ProxyScale integer	@The IMG_ProxyScale is an integer value representing the current Proxy scale of the image. For example if the current proxy is 2/1, then this should be set to 2.
-    ---@field IMG_MotionBlurQuality boolean 	@The IMG_MotionBlurQuality attribute is a bool value which specifies whether Motion Blur is currently enabled for this image. It is usually set by calling the Request:IsNoMotionBlur function.
-    ---@field IMG_Channel Channels @Specify the channels which should be included in the image using the IMG_Channel table values. This is different from all the ones table values above. It should be specified as shown in the following example,
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
+    ---@field IMG_Like any Set the IMG_Like attribute to an already existing image to copy that images attributes to the new image.
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
+    ---@field IMG_CopyChannels boolean  Set this to false to create an Image with different channels than the IMG_Like Image. Use IMG_Channel to then specify the channels the new Image should contain. If no channels are specified, a 4 channel (RGBA) Image will be created.
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
+    ---@field IMG_Width integer  Set the IMG_Width attribute to an integer value representing the actual width of the image in pixels.
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
+    ---@field IMG_Height integer  Set the IMG_Height attribute to an integer value representing the actual height of the image in pixels.
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
+    ---@field IMG_XScale number  Set the IMG_XScale to an numeric value representing the X aspect of the image. For an NTSC D1 format image the value would be 0.9, for example.
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
+    ---@field IMG_YScale number	    Set the IMG_YScale to an numeric value representing the Y aspect of the image. For an NTSC D1 format image the value would be 1.0, for example.
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
+    ---@field IMAT_OriginalWidth integer Set the IMAT_OriginalWidth to the original width of the image in pixels. When a composition is in Proxy mode, it is possible that IMG_Width and IMG_Height will differ from the IMAT_OriginalWidth and IMAT_OriginalHeight values.
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
+    ---@field IMAT_OriginalHeight integer  Set the IMAT_OriginalHeight to the original height of the image in pixels. When a composition is in Proxy mode, it is possible that IMG_Width and IMG_Height will differ from the IMAT_OriginalWidth and IMAT_OriginalHeight values.
+    ---Set the IMG_Depth attribute to match the image depth desired for the image. This will be an integer value, using the following table
+    --- 1 - Single channel image, 8 integer bits per channel.
+    --- 2 - Single channel image, 16 integer bits per channel.
+    --- 3 - Single channel image, 16 float bits per channel.
+    --- 4 - Single channel image, 32 float bits per channel.
+    --- 5 - Four channel image, 8 integer bits per channel.
+    --- 6 - Four channel image, 16 integer bits per channel.
+    --- 7 - Four channel image, 16 float bits per channel.
+    --- 8 - Four channel image, 32 float bits per channel.
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
+    ---@field IMG_Depth "1"| "2" | "3" | "4"| "5" | "6" | "7" | "8"
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
+    ---@field IMG_Quality boolean The IMG_Quality attribute is a bool value which specifies whether the image is High Quality (true) or Interactive Quality (false). The IMG_Quality will be true duringa final render, or if the HiQ button in the Time Ruler of the composition is selected. It is usually set by calling the Request:IsQuick function.
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
+    ---@field IMG_ProxyScale integer The IMG_ProxyScale is an integer value representing the current Proxy scale of the image. For example if the current proxy is 2/1, then this should be set to 2.
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
+    ---@field IMG_MotionBlurQuality boolean  The IMG_MotionBlurQuality attribute is a bool value which specifies whether Motion Blur is currently enabled for this image. It is usually set by calling the Request:IsNoMotionBlur function.
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
+    ---@field IMG_Channel Channels Specify the channels which should be included in the image using the IMG_Channel table values. This is different from all the ones table values above. It should be specified as shown in the following example,
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
     ---@field IMG_Document "Comp"
-    ---@field IMG_CopyChannelsAux boolean  @ If set to false in, allows you to use IMG_Like but discard the aux channel configuration.
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
+    ---@field IMG_CopyChannelsAux boolean   If set to false in, allows you to use IMG_Like but discard the aux channel configuration.
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
     ---@field IMG_DataWindow number
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
     ---@field IMG_ValidWindow number
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
     ---@field IMG_NoData boolean
 
 --///////////////////
@@ -212,22 +217,22 @@
 --- Blur() Options 
 ---///////////////////////////
 
-    ---@class BlurSettings
+    ---@class BlurOptions
     --- The blur type is a string which represents the type of blur applied to the image.
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur#Options_Table)
     ---@field BLUR_Type  "Box"|"Soften"|"Bartlett"|"Sharpen"|"Gaussian"|"Hilight"|"Blend"|"Solarise"
     --- Blur will affect the Red channel
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur#Options_Table)
-    ---@field BLUR_Red   "true" | "false"
+    ---@field BLUR_Red boolean 
     --- Blur will affect the Green channel
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur#Options_Table)
-    ---@field BLUR_Green "true" | "false" 
+    ---@field BLUR_Green boolean 
     --- Blur will affect the Blue channel
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur#Options_Table)
-    ---@field BLUR_Blue  "true" | "false"     
+    ---@field BLUR_Blue boolean
     --- Blur will affect the Alpha channel
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur#Options_Table)
-    ---@field BLUR_Alpha "true" | "false" 
+    ---@field BLUR_Alpha boolean
     ---Specify the strength of the blur along the X axis. A value of 1 represents a blur equal to the width of the image.
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur#Options_Table)
     ---@field BLUR_XSize number
@@ -239,7 +244,7 @@
     ---@field BLUR_Blend number 
     ---Attribute used when applying Glow to the blurred image. To match what the Glow tool does pass in "1.0 - glow" as the value for that tag.
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur#Options_Table)
-    ---@field BLUR_Normalize number | "1.0 - glow"
+    ---@field BLUR_Normalize number 
     ---The blur scale tags are multipliers for the results of the glow applied with BLUR_Normalize
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur#Options_Table)
     ---@field BLUR_RedScale number
@@ -263,15 +268,13 @@
 
     ---@class ChannelOpOfOptions
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index0d66.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/ChannelOpOf#Options_Table)
-    ---@field R ChannelOpOfChannels  @ Red Channel
+    ---@field R ChannelOpOfChannels  Red Channel
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index0d66.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/ChannelOpOf#Options_Table)
-    ---@field G ChannelOpOfChannels  @ Green Channel
-    --- Blue Channel
+    ---@field G ChannelOpOfChannels  Green Channel
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index0d66.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/ChannelOpOf#Options_Table)
-    ---@field B  ChannelOpOfChannels @ Blue Channel
-    --- Alpha Channel
+    ---@field B  ChannelOpOfChannels Blue Channel
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index0d66.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/ChannelOpOf#Options_Table)
-    ---@field A ChannelOpOfChannels @ Alpha Channel
+    ---@field A ChannelOpOfChannels  Alpha Channel
 
 
 ---///////////////////////////
@@ -304,49 +307,79 @@
     ---@field ErDl_Green boolean @ Green channel will be affected if set to true
     ---@field ErDl_Blue boolean @ Blue channel will be affected if set to true
     ---@field ErDl_Alpha boolean @ Alpha channel will be affected if set to true
+
 ---///////////////////////////
 --- End ErodeDilate() Options 
 ---///////////////////////////
 
 ---///////////////////////////////////////////////////////
----////// Channels Class to be derived in in Pix and Img
+---////// Pixel() Options 
 ---///////////////////////////////////////////////////////////
 
-    ---@class Channels
-    ---@field R	number            @ Red channel
-    ---@field G	number            @ Green channel
-    ---@field B	number            @ Blue channel
-    ---@field A	number            @ Alpha channel
-    ---@field Z	number            @ Depth channel
-    ---@field U	number            @ U texture co-ordinate channel
-    ---@field V	number            @ V texture co-ordinate channel
-    ---@field Coverage	number    @ Fraction of pixel covered by foreground object channel
-    ---@field ObjectID	number    @ Unique integer identifier for the pixel's object channel
-    ---@field MaterialID number   @ Unique integer identifier for the pixel's material channel
-    ---@field NX number	          @ X component of pixel's surface normal vector channel
-    ---@field NY number	          @ Y component of pixel's surface normal vector channel
-    ---@field NZ number 	      @ Z component of pixel's surface normal vector channel
-    ---@field BgR number	      @ Red component of background pixel fragment channel
-    ---@field BgG number	      @ Green component of background pixel fragment channel
-    ---@field BgB number	      @ Blue component of background pixel fragment channel
-    ---@field BgA number		  @ Alpha component of background pixel fragment channel
-    ---@field VectX number		  @ X component of pixel's motion vector channel
-    ---@field VectY number		  @ Y component of pixel's motion vector channel
-    ---@field BackVectX number	  @ X component of pixel's reverse motion vector channel
-    ---@field BackVectY	 number   @ Y component of pixel's reverse motion vector channel
-    ---@field PositionX number    @
-    ---@field PositonY number     @
-    ---@field PositonZ number     @
-    ---@field DisparityX number   @
-    ---@field DisparityY number   @
+    ---@class PixelOptions 
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field R	number             Red channel
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field G	number             Green channel
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field B	number             Blue channel
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field A	number             Alpha channel
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field Z	number             Depth channel
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field U	number             U texture co-ordinate channel
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field V	number             V texture co-ordinate channel
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field Coverage	number     Fraction of pixel covered by foreground object channel
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field ObjectID	number     Unique integer identifier for the pixel's object channel
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field MaterialID number    Unique integer identifier for the pixel's material channel
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field NX number	           X component of pixel's surface normal vector channel
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field NY number	           Y component of pixel's surface normal vector channel
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field NZ number 	       Z component of pixel's surface normal vector channel
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field BgR number	       Red component of background pixel fragment channel
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field BgG number	       Green component of background pixel fragment channel
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field BgB number	       Blue component of background pixel fragment channel
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field BgA number		   Alpha component of background pixel fragment channel
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field VectX number		   X component of pixel's motion vector channel
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field VectY number		   Y component of pixel's motion vector channel
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field BackVectX number	   X component of pixel's reverse motion vector channel
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field BackVectY	 number    Y component of pixel's reverse motion vector channel
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field PositionX number    
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field PositonY number     
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field PositonZ number     
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field DisparityX number   
+    ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)
+    ---@field DisparityY number   
+
 
 ---///////////////////////////////////////////////////////
 ---////// End of Channels
 ---///////////////////////////////////////////////////////////
 
+
 ---///////////////////////////////
 ---////// Merge() Options 
 ---///////////////////////////////
+
 
     ---@class MergeOptions
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index528d.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Merge#Usage)
@@ -437,6 +470,7 @@
 ---/////////////////////////////
 ---//////Transform() Options
 ---/////////////////////////////
+
     ---@class TranformOptions
     ---@field XF_Angle  	number      The angle of the transformed image in degrees.
     ---@field XF_XAxis  	number      The x co-ordinate for the transformations axis (or pivot).
@@ -446,3 +480,7 @@
     ---@field XF_YOffset	number      The y co-ordinate for the transformations center.
     ---@field XF_XSize  	number      The scale of the transformed image along the x axis.
     ---@field XF_YSize  	number      The scale of the transformed image along the y axis.
+
+---/////////////////////////////
+---////End Transform() Options
+---/////////////////////////////

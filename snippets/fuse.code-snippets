@@ -393,5 +393,16 @@
             "self:EndControlNest()",
         ],
         "description": "Creates a control nest for a control group"
+    },
+
+    "Input Control":{
+        "prefix": "acontrolnest",
+        "scope": "fuse",
+        "body": [
+            "self:BeginControlNest(\"${1:Control Name}\", \"${2:ScriptName}\", ${3|false,true|}, {})",
+            "\t$0",
+            "self:EndControlNest()",
+        ],
+        "description": "Creates a control nest for a control group"
     }
 }

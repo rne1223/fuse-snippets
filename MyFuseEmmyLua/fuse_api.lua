@@ -78,35 +78,28 @@ function Object:GetAttr() end
         ---@field public Name string 
         local scriptOperator = {}
 
-        --- 
         ---The AddInput function is typically found within the Create event function of a Fuse. It is used to add inputs (controls) to the tool. An input can be one of several control types, or an image type input which appears on the tool tile in the flow.
-        ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexb419.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/ScriptOperator/AddInput)
-        ---
         ---@param labelname string @ This string value specifies the label displayed next to the input control in the inspector panel.
         ---@param scriptname string @ This string value specifies the name of the input control for purposes of saving the value and for scripting it.
-        ---@param attributes table @ This argument accepts a table of attributes used to define the properties of the input. [Info](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
+        ---@param options InputOptions@ This argument accepts a table of attributes used to define the properties of the input. [Info](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
         ---@return Input
-        ---
-        function scriptOperator:AddInput(labelname,scriptname,attributes) end
+        ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexb419.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/ScriptOperator/AddInput)
+        function scriptOperator:AddInput(labelname,scriptname,options) end
 
-        ---
         ---The AddOutput function is typically found within the Create section of a Fuse. It is used to add outputs to the tool. A tool generally only has one output, which is connected to the next tool in the flow's processing tree. It is possible for a tool to have multiple outputs, but rarely useful.
-        ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbdf.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/ScriptOperator/AddOutput)
-        ---
         ---@param labelname string @ This string value specifies the label displayed next to the input control in the inspector panel.
         ---@param scriptname string @ This string value specifies the name of the input control for purposes of saving the value and for scripting it.
         ---@param attributes table @ This argument accepts a table of attributes used to define the properties of the input. [Info](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6e2a-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/Attributes)
         ---@return Output 
+        ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbdf.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/ScriptOperator/AddOutput)
         function scriptOperator:AddOutput(labelname,scriptname,attributes) end
 
-        ---
         ---The BeginControlNest function is found in the Create portion of a Fuse tool. It is used to create a control nest enclosing one or more controls within the tool into a collapsible section. All controls specified after the BeginControlNest function is called will be included in the nested section, until the EndControlNest function is called to close the nest.
-        ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfab1.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/ScriptOperator/BeginControlNest)
-        ---
         ---@param controlName string 
         ---@param scriptName string
         ---@param is_expanded boolean 
         ---@param taglist table 
+        ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfab1.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/ScriptOperator/BeginControlNest)
         function scriptOperator:BeginControlNest(controlName, scriptName, is_expanded, taglist) end
         ---
         ---The EndControlNest function is found in the Create portion of a Fuse tool. It is used to close a control nest created using the BeginControlNest function.
@@ -114,10 +107,8 @@ function Object:GetAttr() end
         ---
         function scriptOperator:EndControlNest() end
 
-        ---
         ---The AddControlPage function is found in the Create portion of the Fuse tool. It is used to organize tool controls into separate tabs. If this function is not used then all of the controls described in the Create() function will appear in the Control Window under a single default tab titled "Controls". All controls defined under the AddControlPage function will appear in that control page until the AddControlPage function is called again.
         ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexbabc-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/ScriptOperator/AddControlPage)
-        ---
         ---@param tabname string 
         function scriptOperator:AddControlPage(tabname) end
 
@@ -141,7 +132,7 @@ function Object:GetAttr() end
             ---The GetValue function is used to retrieve the current values of a control from the current render request. The Request object is the only argument this function will accept. GetValue returns either a value or object which represents the current properties of an Input.
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4612.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Input/GetValue)
             ---@param req Request
-            ---@return Img | Gradient | Particles | Point | Text | SubParameter
+            ---@return Img | Particles | Point | Text | SubParameter
             function Input:GetValue(req) end
             function Input:GetSource() end
             function Input:SetSource() end
@@ -175,34 +166,89 @@ function Object:GetAttr() end
         ---@field public Metadata any
         local Parameter = {}
         function Parameter:Clip() end
+
+        ---
         ---The Copy method is returns a new Image object which is a copy of the current image.
+        ---@return nil 
         ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index88ee.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Parameter/Copy)
+        ---
+        ---
         function Parameter:Copy() end
+
+
+
+
+
+        ---
         --The Image function is used when a new image needs to be created in memory. Its sole argument is a table of attributes which describe the new image. The image function returns a handle to the new Image object.
         ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexe339-2.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Constructor)
+        ---
         function Parameter:Image() end
+
+
+
+
+
         function Parameter:Number() end
+
+
+
+
+
         function Parameter:Particles() end
+
+
+
+
+
         function Parameter:Point() end
+
+
+
+
+
         function Parameter:Text() end
+
+
+
+
+
         function Parameter:GetData() end
+
+
+
+
+
         function Parameter:SetData() end
+
+
+
+
+
         function Parameter:InterpolateWith() end
+
+
+
+
+
 
         --/////////////////////////
         -- SubParameter class
         --/////////////////////////
-            ---@class SubParameter : Request
+ 
+           ---@class SubParameter : Request
             --- It could be a String when getting information from a Text or it could be float number
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index03d1.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Request)
-            ---@field Value any 
+            ---@field Value number | string | Object | nil
             ---Float for X coordinate
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index03d1.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Request)
             ---@field X number 
             ---Float for Y coordinate
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index03d1.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Request)
             ---@field Y number 
-        --/////////////////////////
+
+
+      --/////////////////////////
         -- END SubParameter class
         --/////////////////////////
 
@@ -213,7 +259,7 @@ function Object:GetAttr() end
             ---@class Img : Parameter
             ---Contains a table of image metadata (or nil if no metadata is available) that can both be read and written.
             ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9040.html?title=Metadata)
-            ---@field Metadata table 
+            ---@field Metadata table
             ---Contains the actual size of the pixel area that may be accessed. Writing outside of its bounds may crash Fusion.
             ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index6f6d.html?title=EyeonTips:Script/Reference/Applications/Fuse/Classes/Image)
             ---@field DataWindow integer
@@ -265,23 +311,37 @@ function Object:GetAttr() end
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Img:ApplyMatrix() end
 
+
+
             ---Applies a matrix of color operations to a new image
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Img:ApplyMatrixOf() end
 
+
+
+            ---
             ---Fades and dissolves between images
-            ---@param fg Img @ The image to use as the foreground for the blend operation
-            ---@param map Img | number @ A numeric value that describes how much of the foreground is combined with the background. Alternately, this argument can be an image map, as described below.
+            ---@param fg Img            The image to use as the foreground for the blend operation
+            ---@param map Img | number  A numeric value that describes how much of the foreground is combined with the background. Alternately, this argument can be an image map, as described below.
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9079.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/BlendOf)
             ---@return Img
+            ---
             function Img:BlendOf(fg, map) end
 
+
+
+            ---
             ---Blurs the image. Returns an image if destImg is not passed
-            ---@param destImg? Img @ The image object where the results of the blur will be applied. If none is provided, a new image will be created.
-            ---@param settings BlurSettings @ A table containing values which describe the various options available for the blur
+            ---@param destImg? Img         The image object where the results of the blur will be applied. If none is provided, a new image will be created.
+            ---@param settings BlurOptions A table containing values which describe the various options available for the blur
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index4a1f.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Blur)
             ---@return Img
+            ---
             function Img:Blur(destImg, settings) end
+
+
+
+
 
             ---Applies various math and boolean operations to one or more images.
             ---@param operation ChannelOpOfOperation @ A string that specifies the mathematical operation the function will use when combining channels
@@ -291,10 +351,14 @@ function Object:GetAttr() end
             ---@return Img
             function Img:ChannelOpOf(operation, fgImg, options) end
 
+
+
             ---Create a copy of the image
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexd7a8.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/CopyOf)
             ---@return Img
             function Img:CopyOf() end
+
+
 
             ---Crops or offset an image
             ---@param img Img | nil @ This argument can be set to either **nil** or an Img object.
@@ -530,14 +594,19 @@ function Object:GetAttr() end
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexb696.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Transform)
             function Img:Transform(resultImg, options) end
 
-            ---Add a refcount to the image
-            ---[View documents]()
+            ---**Attention:** 
+            --- `Use()` as well as its cousin `Recycle()` should no longer be used for Fuses. In recent versions, `Use()` will prevent Fusion from freeing the memory allocated for the image object.
+            ---------------------------------
+            ---The Use function increases the reference count for the image. The reference count helps Fusion determine when an image should stay 
+            ---in memory, and when the memory occupied by that image can be recycled. Typically this function is called when the input Image of a tool is being passed directly 
+            ---to the output Image, as in the following example.
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexcd58.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Use)
             function Img:Use() end
 
             ---The UseSAT function must be called before using the SampleArea functions; SampleAreaB, SampleAreaD, and SampleAreaW. It will create a Summed Area Table (SAT),
             ---containing pre-calculated values for the entire image. If the SAT has already been created for the Image object this function will increase the reference count
             ---for the SAT. This function does not return a value - the SAT is attached directly to the Image object.
-            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index43c3.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Img/UseSAT)
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index43c3.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/UseSAT)
             function Img:UseSAT() end
 
             ---The RecycleSAT function will reduce the reference count for an Images Summed Area Table (SAT) and if the reference count reaches 0, it will release any memory consumed by the table.\
@@ -545,16 +614,18 @@ function Object:GetAttr() end
             function Img:RecycleSAT() end
 
             ---Will fill all channels with zeros.
-            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Img)
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Img:Clear() end
 
             ---Returns the number of bytes or 0 if the channel is not present.
-            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Img)
+            ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index80f9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image)
             function Img:GetChanSize(channel) end
 
+            ---No information available. Please help fill this blank spot
             function Img:AlphaDivide() end
 
-            function Img:AlpahMultiply() end
+            ---No information available. Please help fill this blank spot
+            function Img:AlphaMultiply() end
 
             ---Construct function for a new Img object
             ---@param options ImageOptions @ Img attributes which describe the images width, heigh, color depth and so forth
@@ -572,7 +643,7 @@ function Object:GetAttr() end
         -- Particle Class 
         --/////////////////////////
 
-            ---@class Particles : Parameter
+            ---@class Particle : Parameter
             ---No available information
             ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index3bf3.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Particles)
             ---@field NumGroups any
@@ -600,36 +671,38 @@ function Object:GetAttr() end
             ---No available information
             ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index3bf3.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Particles)
             ---@field NextID any
-            local Particles = {} 
+            local Particle = {} 
             ---No available information
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index3bf3.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Particles)
-            function Particles:Particles() end
+            function Particle:Particles() end
             ---No available information
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index3bf3.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Particles)
-            function Particles:GetGroup() end
+            function Particle:GetGroup() end
             ---No available information
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index3bf3.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Particles)
-            function Particles:AddGroup() end
+            function Particle:AddGroup() end
             ---No available information
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index3bf3.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Particles)
-            function Particles:GetID() end
+            function Particle:GetID() end
             ---No available information
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index3bf3.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Particles)
-            function Particles:FindParticle() end
+            function Particle:FindParticle() end
             ---No available information
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index3bf3.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Particles)
-            function Particles:AddExtraData() end
+            function Particle:AddExtraData() end
             ---No available information
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index3bf3.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Particles)
-            function Particles:GetExtraData() end
+            function Particle:GetExtraData() end
             ---No available information
             ---[View documents](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index3bf3.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Particles)
-            function Particles:SetExtraData() end
+            function Particle:SetExtraData() end
+
+            ---@return Particle
+           function Particles() end
 
         --/////////////////////////
         -- End Particle Class 
         --/////////////////////////
-
 
 
     --/////////////////////////
@@ -676,7 +749,7 @@ function Object:GetAttr() end
     --//////////////////////
     -- Pixel() 
     --//////////////////////
-    ---@class Pix : Channels
+    ---@class Pix : PixelOptions 
     local Pix = {}
     --- Zeroes all pixel values to black
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexfbf9.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Pixel)

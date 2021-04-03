@@ -65,18 +65,23 @@ export function activate(context: vscode.ExtensionContext) {
 	// 			// get all text until the `position` and check if it reads `console.`
 	// 			// and if so then complete if `log`, `warn`, and `error`
 	// 			const linePrefix = document.lineAt(position).text.substr(0, position.character);
-	// 			if (!linePrefix.endsWith('console.')) {
+
+	// 			if (!linePrefix.endsWith('INPID_InputControl =')) {
 	// 				return undefined;
 	// 			}
 
 	// 			return [
-	// 				new vscode.CompletionItem('log', vscode.CompletionItemKind.Enum),
-	// 				new vscode.CompletionItem('warn', vscode.CompletionItemKind.Method),
-	// 				new vscode.CompletionItem('error', vscode.CompletionItemKind.Method),
+	// 				new vscode.CompletionItem(' "ButtonControl"', vscode.CompletionItemKind.EnumMember),
+	// 				new vscode.CompletionItem(' "CheckboxControl"', vscode.CompletionItemKind.EnumMember),
+	// 				new vscode.CompletionItem(' "ColorControl"', vscode.CompletionItemKind.EnumMember),
+	// 				new vscode.CompletionItem(' "ComboControl"', vscode.CompletionItemKind.EnumMember),
+	// 				new vscode.CompletionItem(' "ComboIDControl"', vscode.CompletionItemKind.EnumMember)
+	// 				// new vscode.CompletionItem('warn', vscode.CompletionItemKind.Method),
+	// 				// new vscode.CompletionItem('error', vscode.CompletionItemKind.Method),
 	// 			];
 	// 		}
 	// 	},
-	// 	'{' // triggered whenever a '{' is being typed
+	// 	'=' // triggered whenever a '{' is being typed
 	// );
 
 

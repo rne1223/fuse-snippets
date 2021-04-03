@@ -41,6 +41,7 @@
     ---@field REG_Unpredictable boolean @A bool value (true/false) that determines if the tool uses the cache. It can be of use when testing or debugging the tool. Defaults to false.\
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index157d.html?title=Eyeon:Script/Reference/Applications/Fuse/Functions/FuRegisterClass/Attributes)
     ---@field REGS_Company string @A string that can be use to provide your company name
+    ---@field REGS_SupportsDoD boolean  Allow the fuse to support Domain of Definition (DoD) manipulation
 
 --//////////////////////////////
 -- End FuRegisterClass Attributes
@@ -196,15 +197,15 @@
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
     ---@field IMG_MotionBlurQuality boolean  The IMG_MotionBlurQuality attribute is a bool value which specifies whether Motion Blur is currently enabled for this image. It is usually set by calling the Request:IsNoMotionBlur function.
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
-    ---@field IMG_Channel Channels Specify the channels which should be included in the image using the IMG_Channel table values. This is different from all the ones table values above. It should be specified as shown in the following example,
+    ---@field IMG_Channel imageChannels Specify the channels which should be included in the image using the IMG_Channel table values. This is different from all the ones table values above. It should be specified as shown in the following example,
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
     ---@field IMG_Document "Comp"
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
     ---@field IMG_CopyChannelsAux boolean   If set to false in, allows you to use IMG_Like but discard the aux channel configuration.
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
-    ---@field IMG_DataWindow number
+    ---@field IMG_DataWindow number Use to define the DoD of an image
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
-    ---@field IMG_ValidWindow number
+    ---@field IMG_ValidWindow number Use to define the DoD of an image
     ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/index9205.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Image/Attributes)
     ---@field IMG_NoData boolean
 

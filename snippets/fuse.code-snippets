@@ -117,7 +117,6 @@
             "\tINPID_InputControl = \"CheckboxControl\",",
             "\tINP_Integer = true,",
             "\tINP_Default = 1.0,",
-            "\tICD_Width = 0.25,",
             "})",
         ],
         "description": "Add Checkbox Control to Fusion's Inspector Page"

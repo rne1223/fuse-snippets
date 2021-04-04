@@ -59,8 +59,8 @@
     -- ScriptOperator Class  
     --//////////////////////////
 
-
-        ---@class ScriptOperator:Object @ScriptOperator extends Input 
+        ---ScriptOperator extends Input 
+        ---@class ScriptOperator : Object 
         ---
         ---The Status member is used to store a string value indicating the current status of the Fuse tool. 
         ---@field public Status string
@@ -187,7 +187,19 @@
 
             ---@class Output : Link
             local Output = {}
-            function Output:Set() end
+
+
+            ---
+            ---The Set function is used to assign a specific image in memory to the Output. Typically this is the last step in a Process event before a tool is done rendering.
+            ---@param req Request The Request object is always passed to the Process event function as an argument. See the pages for the Request object and Process event function for more information.
+            ---@param img Img This argument should be set to an image which will be used as the final output for the tool.
+            ---[More Details](https://www.steakunderwater.com/VFXPedia/96.0.243.189/indexb9e7.html?title=Eyeon:Script/Reference/Applications/Fuse/Classes/Output/Set)
+            ---
+            function Output:Set(req,img) end
+
+
+
+
 
 
         --//////////////////////

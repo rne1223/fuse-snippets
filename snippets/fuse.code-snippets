@@ -528,7 +528,7 @@
         "prefix": "!AddOutput",
         "scope": "fuse",
         "body": [
-            "Out${0:variableName} = self:AddInput('${2:labelname}', '${2}', {",
+            "Out${0:variableName} = self:AddOutput('${2:labelname}', '${2}', {",
             "\tLINKID_DataType='${3|Image,FuID,Gradient,Number,Particles,Point,Text|}',",
             "\tLINK_MAIN = 1",
             "})",

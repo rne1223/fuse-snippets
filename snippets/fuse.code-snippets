@@ -1,6 +1,6 @@
 {
     "Simple Fuse":{
-        "prefix":"fuse-init",
+        "prefix":"!fuse-init",
         "scope": "fuse",
         "body":[
             "--[[--",
@@ -58,7 +58,7 @@
     },
 
     "Fragment Shader Fuse": {
-      "prefix": "fuse-shader",
+      "prefix": "!fuse-shader",
       "body": [
         "--[[--",
         "",
@@ -235,7 +235,7 @@
     },
 
     "Generic Add Input": {
-        "prefix": "ainput",
+        "prefix": "!AddInput",
         "scope": "fuse",
         "body": [
             "In${1:variableName} = self:AddInput('${2:labelname}', '${2}', {",
@@ -247,7 +247,7 @@
     },
 
     "Add Input Button Control ": {
-        "prefix": "abutton",
+        "prefix": "!AddButton",
         "scope": "fuse",
         "body": [
             "In${1:Button} = self:AddInput('${2:This is a button}', '${3:ButtonLabel1}', {",
@@ -262,7 +262,7 @@
     },
 
     "Add Input Checkbox Control ": {
-        "prefix": "acheckbox",
+        "prefix": "!AddCheckbox",
         "scope": "fuse",
         "body": [
             "In${1:Checkbox} = self:AddInput('${2:MyCheckbox}', '${2}', {",
@@ -276,7 +276,7 @@
     },
 
     "Add Input Color Control": {
-        "prefix": "acolor",
+        "prefix": "!AddColor",
         "scope": "fuse",
         "body": [
             "In${1:ColorControl} = self:AddInput('${2|Red,Green,Blue,Alpha|}', '${2}', {",
@@ -294,7 +294,7 @@
     },
 
     "Add Input Combo Control": {
-        "prefix": "acombo",
+        "prefix": "!AddCombo",
         "scope": "fuse",
         "body": [
           "In${1:Operation} = self:AddInput('${2:Operator}', '${2}', {",
@@ -312,7 +312,7 @@
     },
 
     "Add Input Combo ID Control": {
-        "prefix": "aidcombo",
+        "prefix": "!AddComboID",
         "scope": "fuse",
         "body": [
             "In${1:Direction} = self:AddInput('${2:Direction of Camera}', '${3:Direction}', {",
@@ -329,7 +329,7 @@
     },
 
     "Add Input File Control": {
-        "prefix": "afile",
+        "prefix": "!AddFile",
         "scope": "fuse",
         "body": [
             "In${1:File} = self:AddInput('${2:File}', '${2}', {",
@@ -342,7 +342,7 @@
     },
 
     "Add Font File and Style Control": {
-        "prefix": "afontfile",
+        "prefix": "!AddFontFile",
         "scope": "fuse",
         "body": [
             "In${1:Font} = self:AddInput('${2:Font}', '${2}', {",
@@ -368,7 +368,7 @@
     },
 
     "Add Gradient Control": {
-        "prefix": "agradient",
+        "prefix": "!AddGradient",
         "scope": "fuse",
         "body": [
             "In${1:Gradient} = self:AddInput('${2:Gradient}', '${2}', {",
@@ -386,7 +386,7 @@
     },
 
     "Add Label Control": {
-        "prefix": "alabel",
+        "prefix": "!AddLabel",
         "scope": "fuse",
         "body": [
             "In${1:Label} = self:AddInput('${2:This is a label}', '${3:Label1}', {",
@@ -400,7 +400,7 @@
     },
 
     "Add MultiButton Control": {
-        "prefix": "amultibutton",
+        "prefix": "!AddMultiButton",
         "scope": "fuse",
         "body": [
             "In${1:Operation} = self:AddInput('${2:Operation}', '${2}', {",
@@ -417,7 +417,7 @@
     },
 
     "Add MultiButton ID Control": {
-        "prefix": "aidmultibutton",
+        "prefix": "!AddMultiButtonID",
         "scope": "fuse",
         "body": [
             "In${1:MultiButton} = self:AddInput('${2:Multibutton Label}', '${3:Multibutton1}', {",
@@ -436,7 +436,7 @@
     },
 
     "Add OffSet Control": {
-        "prefix": "aoffset",
+        "prefix": "!AddOffset",
         "scope": "fuse",
         "body": [
             "In${1:Center} = self:AddInput('${2:Center}', '${2}', {",
@@ -451,7 +451,7 @@
     },
 
     "Add Range Control": {
-        "prefix": "arange",
+        "prefix": "!AddRange",
         "scope": "fuse",
         "body": [
             "In${1:Low} = self:AddInput('${2:My Low Value}', '${3:lowValue1}', {",
@@ -476,7 +476,7 @@
 
 
     "Add Screw Control": {
-        "prefix": "ascrew",
+        "prefix": "!AddScrew",
         "scope": "fuse",
         "body": [
             "In${1:Screw} = self:AddInput('${2:Screw Label}', '${3:Screw1}', {",
@@ -491,7 +491,7 @@
     },
 
     "Add Slider Control": {
-        "prefix": "aslider",
+        "prefix": "!AddSlider",
         "scope": "fuse",
         "body": [
             "In${1:Slider} = self:AddInput('${2:Slider Label}', '${3:Slider1}', {",
@@ -506,7 +506,7 @@
     },
 
     "Add TextEdit Control": {
-        "prefix": "atextedit",
+        "prefix": "!AddTextEdit",
         "scope": "fuse",
         "body": [
             "In${1:TextEntry} = self:AddInput('${2:TextEdit Label}', '${3:Text}', {",
@@ -525,7 +525,7 @@
     },
 
     "Add Output Control": {
-        "prefix": "aoutput",
+        "prefix": "!AddOutput",
         "scope": "fuse",
         "body": [
             "Out${0:variableName} = self:AddInput('${2:labelname}', '${2}', {",
@@ -537,7 +537,7 @@
     },
 
     "Control Nest":{
-        "prefix": "acontrolnest",
+        "prefix": "!ControlNest",
         "scope": "fuse",
         "body": [
             "self:BeginControlNest(\"${1:Control Name}\", \"${2:ScriptName}\", ${3|false,true|}, {})",

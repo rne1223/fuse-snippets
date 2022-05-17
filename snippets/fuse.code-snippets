@@ -211,7 +211,7 @@
     },
 
     "FuRegisterClass": {
-        "prefix": "reg",
+        "prefix": "!FuRegisterClass",
         "scope": "fuse",
         "body": [
             "FuRegisterClass('${1:name}', ${2|CT_Tool,CT_ParticleTool,CT_SourceTool,CT_Modifier,CT_ViewLUTPlugin|}, {",
@@ -232,6 +232,35 @@
             "})",
         ],
         "description": "Registration Class for a Fuse. This is needed"
+    },
+
+    "NotifyChanged": {
+      "prefix": "!NotifyChanged",
+      "scope": "fuse",
+      "body": [
+            "------------------------------------------------------------------------------",
+            "-- Callback for input control changes.",
+            "-- This callback gets called whenever an input control emits a change event.",
+            "-- For a control to do so, you must set its `INP_DoNotifyChanged` attribute",
+            "-- to `true` when creating it.",
+            "-- @param inp the input object whose control has changed",
+            "-- @param param the new parameter value object (may be `nil`)",
+            "-- @param time the current frame number, as shown on the comp's timeline.",
+            "-- @see https://www.steakunderwater.com/VFXPedia/96.0.243.189/index2ab5.html?title=Eyeon:Script/Reference/Applications/Fuse/Tool/Events/NotifyChanged"
+            "function NotifyChanged(inp, param, time)",
+            "",
+            "\tif inp==nil then",
+            "\t\treturn",
+            "\tend",
+            "",
+            "\tif inp==${InControl} then",
+            "\t\t$0"
+            "\tend"
+            "",
+            "end",
+            ""
+        ],
+        "description": "Input control change callback."
     },
 
     "Generic Add Input": {

@@ -13,8 +13,11 @@ All notable changes to the "fuse-snippets" extension will be documented in this 
 
 ## [0.2.1]
 
-### Added 
+### Added
+
 - Documetation and intellisense for Image class
+- Snippet for Fuse implementing a fragment shader
+
 ## [0.2.0]
 
 ### Fix
